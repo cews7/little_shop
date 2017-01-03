@@ -1,24 +1,9 @@
-# README
+# Mini-Market
+**Rails e-commerce website. The site is devoted to selling mini-stuff!**
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+[link to heroku](https://serene-beyond-86450.herokuapp.com/)
 
-* Ruby version
 
-* System dependencies
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+[DTR](https://gist.github.com/cews7/e2a6a744d02feba4bf457717f664f358)
