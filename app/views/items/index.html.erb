@@ -1,0 +1,6 @@
+<% @items.each do |item| %>
+  <h3><%= item.title %></h3>
+  <p><%= item.description %></p>
+  <p><%= item.price %></p>
+  <p><%= image_tag"#{item.image}" %></p>
+<% end %>
