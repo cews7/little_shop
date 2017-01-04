@@ -2,8 +2,8 @@ require 'rails_helper'
 
 describe Item do
   describe "validations" do
-    let(:category) {Category.create!(title: "Animals")}
     context "invalid attributes" do
+    let(:category) {Category.create!(title: "Animals")}
       it "is invalid without title" do
         item = Item.create(description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",
         price: 19999.99, image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg",
@@ -55,8 +55,8 @@ describe Item do
   end
 
   describe "relationships" do
+    let(:category) {Category.create!(title: "Animals")}
     it "belongs to a category" do
-      category = Category.create(title: "Animals")
       item = Item.create(title: "miniture pony", price: 19999.99, description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",
       image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg", category_id: category.id)
 
