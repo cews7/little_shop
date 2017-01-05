@@ -1,7 +1,11 @@
-<% @items.each do |item| %>
-  <h3><%= item.title %></h3>
-  <p><%= item.description %></p>
-  <p><%= "$#{item.price}" %></p>
-  <p><%= image_tag"#{item.image}" %></p>
-  <a><%= button_to "Add to Cart", cart_items_path(item_id: item.id), class:"btn btn-primary" %></a>
-<% end %>
+<div>
+  <% @items.each do |item| %>
+    <div class="col-md-3 text-center item-container">
+      <h3><%= item.title %></h3>
+      <p><%= item.description %></p>
+      <p><%= "$#{item.price}" %></p>
+      <%= image_tag(item.image, class: 'item-image') %>
+      <a><%= button_to "Add to Cart", cart_items_path(item_id: item.id), class:"btn btn-primary" %></a>
+    </div>
+  <% end %>
+</div>
