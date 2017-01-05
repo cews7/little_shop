@@ -11,8 +11,8 @@ RSpec.feature "When a user adds items to their cart", type: :feature do
     visit items_path
     click_button "Add to Cart"
 
-    visit carts_path
-
+    visit cart_path
+    save_and_open_page
     expect(page).to have_content("Miniature Pony")
     expect(page).to have_content(19999.99)
     expect(page).to have_content("This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?")

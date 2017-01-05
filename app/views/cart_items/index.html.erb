@@ -1,0 +1,10 @@
+<% @cart_items.each do |cart_item| %>
+  <h3><%= cart_item.title %></h3>
+  <p><%= cart_item.description %></p>
+  <p><%= cart_item.quantity %></p>
+  <p><%= "$#{cart_item.price}" %></p>
+  <p><%= image_tag"#{cart_item.image}" %></p>
+<% end %>
+
+<h2> Total Price </h2>
+  <%= cart_item.total_price %>

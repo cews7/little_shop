@@ -3,5 +3,7 @@ Rails.application.routes.draw do
 
   resources :home, only: [:index]
   resources :items, only: [:index]
-  resources :carts, only: [:index]
+
+  post "/cart_items", to: "cart_items#create"
+  get  "/cart", to: "cart_items#index" 
 end
