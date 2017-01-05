@@ -4,6 +4,8 @@
   <p><%= cart_item.quantity %></p>
   <p><%= "$#{cart_item.price}" %></p>
   <p><%= image_tag"#{cart_item.image}" %></p>
+  <a><%= button_to "Delete from Cart", delete_cart_items_path(cart_item_id: cart_item.id), class:"btn btn-primary" %></a>
+
 <% end %>
 
 <h2> Total Price </h2>
