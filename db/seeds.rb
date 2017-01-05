@@ -31,7 +31,7 @@ items = [{title: "Miniature Pony", description: "This majestic little beauty wil
           category_id: category_objects[0].id},
          {title: "Finger Monkeys", description: "All the rage in Toronto. Come as a set so you can use them as wedding rings.",
           price: 149.99, image: "https://s-media-cache-ak0.pinimg.com/236x/e8/7a/10/e87a10102602330e9eca2027e99f1d30.jpg",
-          category_id: category_objects[1].id},
+          category_id: category_objects[0].id},
          {title: "Tiny Sportscar", description: "Tired of having a hard time finding parking downtown but still want to look cool in a sportscar? look no further.",
           price: 299.99, image: "https://s-media-cache-ak0.pinimg.com/236x/2f/cb/b9/2fcbb9a477214eb0c2cf912914b3f023.jpg",
           category_id: category_objects[1].id},
