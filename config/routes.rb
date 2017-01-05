@@ -6,4 +6,7 @@ Rails.application.routes.draw do
   end
   resources :home, only: [:index]
   resources :items, only: [:index]
+
+  post "/cart_items", to: "cart_items#create"
+  get  "/cart", to: "cart_items#index" 
 end
