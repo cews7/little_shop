@@ -3,5 +3,4 @@
   <p><%= item.description %></p>
   <p><%= "$#{item.price}" %></p>
   <p><%= image_tag"#{item.image}" %></p>
-  <a><%= button_to "Add to Cart", carts_path(item_id: item.id), class:"btn btn-primary" %></a>
 <% end %>
