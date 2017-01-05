@@ -20,65 +20,12 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:300,400,700');
 
 // Import SCSS Components
-@import 'base/normalize';
-@import 'base/typography';
+@import 'base/_normalize';
+@import 'base/_typography';
+@import 'base/_colors';
+@import 'base/_base';
 
-
-
-$primaryColor: #eeffcc;
-
-// body {
-//     background: $primaryColor;
-//     font-family: 'Lato', sans-serif;
-// }
-
-.item-image {
-  height: 160px;
-}
-
-.item-container {
-  margin-bottom: 60px;
-}
-
-html, body{
-  	font-family: 'Open Sans', sans-serif;
-    font-size: 100%;
-  	background: #FFf;
-}
-body a{
-	transition:0.25s all;
-	-webkit-transition:0.25s all;
-	-moz-transition:0.25s all;
-	-o-transition:0.25s all;
-	-ms-transition:0.25s all;
-}
-
-.welcome-banner{
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: #0088cc;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
-}
-
-.headline {
-    padding: 120px 0;
-    text-align: left;
-}
-
-.navbar-brand {
-  padding-top: 0px;
-  padding-right: 15px;
-}
-
-.navbar-link a{
-  color: #e53a32;
-  text-decoration: none;
-}
-
-.navbar-collapse {
-  padding-top: 15px;
-}
+@import 'layout/navigation';
+@import 'layout/forms';
+@import 'layout/banner';
+@import 'layout/item';
