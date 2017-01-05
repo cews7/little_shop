@@ -1,0 +1,11 @@
+html, body {
+  background: $body-background;
+}
+
+body a {
+	transition:0.25s all;
+	-webkit-transition:0.25s all;
+	-moz-transition:0.25s all;
+	-o-transition:0.25s all;
+	-ms-transition:0.25s all;
+}
