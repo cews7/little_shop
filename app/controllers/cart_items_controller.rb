@@ -4,7 +4,7 @@ class CartItemsController < ApplicationController
     item = Item.find(params[:item_id])
     cart.add_item(item)
     session[:cart] = cart.data
-    # redirect_to items_path
+    redirect_to items_path
   end
 
   def index
