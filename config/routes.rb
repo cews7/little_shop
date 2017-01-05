@@ -7,6 +7,8 @@ Rails.application.routes.draw do
   resources :home, only: [:index]
   resources :items, only: [:index]
 
+
   post "/cart_items", to: "cart_items#create"
-  get  "/cart", to: "cart_items#index" 
+  get  "/cart", to: "cart_items#index"
+  post "/delete_cart_items", to: "cart_items#destroy"
 end
