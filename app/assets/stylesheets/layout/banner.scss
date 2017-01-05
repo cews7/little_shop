@@ -1,15 +1,24 @@
 .welcome-banner{
-    display: block;
-    width: 100%;
-    text-align: center;
-    background: $banner-background;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    background-size: cover;
-    -o-background-size: cover;
+  display: block;
+  width: 100%;
+  text-align: center;
+  background: $banner-background;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  -o-background-size: cover;
 }
 
 .headline {
-    padding: 120px 0;
-    text-align: left;
+  padding: 80px;
+  text-align: center;
+}
+
+.headline h1 {
+  font-size: 3em;
+  font-weight: 700;
+}
+
+.headline h3 {
+  padding-bottom: 20px;
 }
