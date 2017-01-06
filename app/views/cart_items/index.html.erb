@@ -32,7 +32,7 @@
   			<td data-th="Price"><%="$#{cart_item.price}" %></td>
   			<td data-th="Quantity">
   				<p><%= form_tag cart_item_update_path(:cart_item => cart_item) do %>
-                <%= select_tag :cart_item_quantity, options_for_select((0..500), cart_item.quantity) %>
+                <%= select_tag :cart_item_quantity, options_for_select((1..500), cart_item.quantity) %>
                 <%= submit_tag "Update" %>
               <% end %>
   			</td>

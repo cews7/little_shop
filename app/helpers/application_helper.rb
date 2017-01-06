@@ -15,4 +15,12 @@ module ApplicationHelper
   def subtotal(price, quantity)
     (price * quantity).round(2)
   end
+
+  def count(cart_items)
+    count = []
+    cart_items.each do |item|
+      count << item.quantity
+    end
+    count.reduce(:+)
+  end
 end
