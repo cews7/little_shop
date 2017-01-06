@@ -4,7 +4,7 @@ class ItemsController < ApplicationController
       @items = Item.all
     else
       @category = Category.find(params[:category_id])
-      @items = @category.find_items_associated_with_category
+      @items = @category.items
     end
   end
 end
