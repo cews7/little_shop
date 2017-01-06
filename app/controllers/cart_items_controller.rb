@@ -22,8 +22,7 @@ class CartItemsController < ApplicationController
     #     cart_item.delete
     #   end
     # end
-    flash[:success] = "#{item.title} was successfully deleted!"
-
+    flash[:notice] = <%= %Q[link_To Deleted #{item.title}] %>
     redirect_to items_path
   end
 

@@ -11,7 +11,9 @@
       <p><%= item.description %></p>
       <p><%= "$#{item.price}" %></p>
       <%= image_tag(item.image, class: 'item-image img-responsive') %>
-      <a><%= button_to "Add to Cart", cart_items_path(item_id: item.id), class:"btn btn-primary" %></a>
+      <% if item.retired? == false %>
+        <a><%= button_to "Add to Cart", cart_items_path(item_id: item.id), class:"btn btn-primary" %></a>
+      <% end %>  
     </div>
   <% end %>
 </div>
