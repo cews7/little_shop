@@ -11,6 +11,14 @@ class CartItemsController < ApplicationController
     @cart_items = cart.items
   end
 
+  def update
+    item = Item.find(params[:cart_item])
+    item_quantity = params[:cart_item_quantity]
+    cart.update(item, item_quantity)
+    redirect_to cart_path
+  end
+
+
   def destroy
     # byebug
 
@@ -25,5 +33,6 @@ class CartItemsController < ApplicationController
     # flash[:notice] = <%= %Q[link_To Deleted #{item.title}] %>
     redirect_to items_path
   end
+
 
 end

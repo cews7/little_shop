@@ -21,6 +21,10 @@ class Cart
     data.delete(item.id.to_s)
   end
 
-
+  def update(item, item_quantity)
+    new_data = {item.id.to_s => item_quantity.to_i}
+    data.merge!(new_data)
+    # byebug
+  end
 
 end
