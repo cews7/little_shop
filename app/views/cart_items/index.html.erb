@@ -1,5 +1,6 @@
 <div class="container">
 
+
   <div class="col-lg-12">
     <h1 class="page-header">Shopping Cart (<%= "#{@cart_items.count}" %>)</h1>
   </div>
@@ -30,9 +31,13 @@
   			</td>
   			<td data-th="Price"><%="$#{cart_item.price}" %></td>
   			<td data-th="Quantity">
-  				<input type="number" class="form-control text-center" value="<%= cart_item.quantity %>">
+  				<p><%= form_tag cart_item_update_path(:cart_item => cart_item) do %>
+                <%= select_tag :cart_item_quantity, options_for_select((0..500), cart_item.quantity) %>
+                <%= submit_tag "Update" %>
+              <% end %>
   			</td>
-  			<td data-th="Subtotal" class="text-center"><%="$#{cart_item.price}" %></td>
+  			<td data-th="Subtotal" class="text-center"><%= "$#{subtotal(cart_item.price, cart_item.quantity)}" %>
+        </td>
   			<td class="actions" data-th="">
   				<!-- <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button> -->
   				<!-- <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button> -->
