@@ -71,7 +71,7 @@ items = [{title: "Miniature Pony", description: "This majestic little beauty wil
          {title: "Tiny Flashlight", description: "For those moments where you only need about 4 cubic inches of light.",
           price: 39.99, image: "http://wtuz.com/wp-content/uploads/2014/06/sold-out-icon-2.png",
           category_id: category_objects[2].id, retired: true},
-         
+
         ]
 
 

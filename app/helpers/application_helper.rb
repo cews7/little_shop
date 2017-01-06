@@ -11,4 +11,8 @@ module ApplicationHelper
       cart_prices.reduce(:+).round(2)
     end
   end
+
+  def subtotal(price, quantity)
+    (price * quantity).round(2)
+  end
 end
