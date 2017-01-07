@@ -8,7 +8,7 @@ class CartController < ApplicationController
   end
 
   def index
-
+    @cart_items = cart.items
     @items = session[:cart] || {}
   end
 

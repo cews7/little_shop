@@ -16,11 +16,9 @@ describe "User sees all items" do
     expect(page).to have_content("Tiny Racer")
     expect(page).to have_content(79999.99)
     expect(page).to have_content("For the middleaged man who still love RC Cars.")
-    # expect(page).to have_css("img[src=\"#{item_1.image}\"]")
     expect(page).to have_content("Tea Cup Pig")
     expect(page).to have_content(199.99)
     expect(page).to have_content("This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?")
-    # expect(page).to have_css("img[src=\"#{item_2.image}\"]")
   end
 
 end
