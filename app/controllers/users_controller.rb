@@ -10,13 +10,14 @@ class UsersController < ApplicationController
       redirect_to root_path
       flash[:success] = "#{@user.name} successfully created!"
     else
-      render :login 
+      redirect_to new_user_path
+      flash[:danger] = "Missing needed credentials or passwords do not match!"
     end
   end
 
 
   private
   def user_params
-    params.require(:user).permit(:name, :email, :password)
+    params.require(:user).permit(:name, :email, :password_digest, :password_digest_confirmation)
   end
 end
