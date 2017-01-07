@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   resources :home,            only: [:index]
   resources :items,           only: [:index]
   resources :users,           only: [:new, :create]
+  resources :orders,          only: [:index]
 
   get "/login",               to: "sessions#new"
   post "/login",              to: "sessions#create"

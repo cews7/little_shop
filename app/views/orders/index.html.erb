@@ -1,0 +1,50 @@
+<div class="container">
+
+  <div class="col-lg-12">
+    <h1 class="page-header">Your Order</h1>
+  </div>
+
+  <table class="table table-hover table-condensed">
+  	<thead>
+  		<tr>
+        <th class="col-sm-6"><%= "Item" %></th>
+        <th class="col-sm-2"><%= "Price" %></th>
+        <th class="col-sm-2"><%= "Quantity" %></th>
+  			<th class="col-sm-2" class="text-center"><%= "Subtotal" %></th>
+  		</tr>
+  	</thead>
+  	<tbody>
+      <% @cart_items.each do |cart_item| %>
+  		<tr>
+  			<td data-th="Product">
+  				<div class="row">
+  					<div class="col-sm-2 hidden-xs">
+              <img><%= image_tag cart_item.image, class: "img-responsive" %></img>
+            </div>
+  					<div class="col-sm-10">
+  						<h3 class="nomargin"><%= cart_item.title %></h3>
+              <p><%= cart_item.description %></p>
+  					</div>
+  				</div>
+  			</td>
+  			<td data-th="Price"><%="$#{cart_item.price}" %></td>
+  			<td data-th="Quantity" class="text-center"><%="#{cart_item.quantity}" %></td>
+  			<td data-th="Total" class="text-center"><%= "$#{subtotal(cart_item.price, cart_item.quantity)}" %></td>
+        <% end %>
+  		</tr>
+  	</tbody>
+  	<tfoot>
+  		<tr class="visible-xs">
+  			<td class="text-center">
+          <strong>Total Price: <%= "$#{cart_total(@cart_items)}" %></strong>
+        </td>
+  		</tr>
+  		<tr>
+  			<td><a href="/items" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+  			<td colspan="2" class="hidden-xs"></td>
+  			<td class="hidden-xs text-center"><strong>Order Total: <%= "$#{cart_total(@cart_items)}" %></strong></td>
+  		</tr>
+  	</tfoot>
+  </table>
+
+</div>
