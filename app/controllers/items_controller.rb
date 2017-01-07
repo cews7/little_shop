@@ -1,5 +1,6 @@
 class ItemsController < ApplicationController
   def index
+    @cart_items = cart.items
     if request.original_fullpath == '/items'
       @items = Item.all
     else

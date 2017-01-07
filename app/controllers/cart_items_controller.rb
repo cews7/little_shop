@@ -31,7 +31,7 @@ class CartItemsController < ApplicationController
     #   end
     # end
     # flash[:notice] = <%= %Q[link_To Deleted #{item.title}] %>
-    redirect_to items_path
+    redirect_to cart_path
   end
 
 
