@@ -10,9 +10,11 @@
           <h3><%= item.title %></h3>
           <p><%= item.description %></p>
           <p><%= "$#{item.price}" %></p>
-         <% if item.retired? == false %>
-        <a><%= button_to "Add to Cart", cart_items_path(item_id: item.id), class:"btn btn-primary" %></a>
-      <% end %>
+         <% if item.retired? %>
+            <p> Item Retired </p>
+         <%else %>
+            <a><%= button_to "Add to Cart", cart_items_path(item_id: item.id), class:"btn btn-primary" %></a>
+         <% end %>
         </div>
       </div>
     </div>
