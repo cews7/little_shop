@@ -48,7 +48,7 @@ describe Cart do
     end
   end
 
-  xcontext "#delete_item" do
+  context "#delete_item" do
     it "deletes from the data method when an item is added" do
       category = Category.create(title: "Animals")
       item_1 = Item.create(title: "Miniature Pony", description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",
@@ -64,7 +64,7 @@ describe Cart do
 
       cart.delete_item(item_2)
 
-      expect(cart.data).should_not have_key(item_2.id.to_s)
+      expect(cart.data.count).to eq(1)
 
     end
   end
