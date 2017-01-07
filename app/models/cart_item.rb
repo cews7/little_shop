@@ -6,4 +6,5 @@ class CartItem < SimpleDelegator
     @quantity = quantity
   end
 
+
 end
