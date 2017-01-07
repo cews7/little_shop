@@ -21,7 +21,11 @@
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav navbar-right">
+          <% if current_user %>
+          <li class="navbar-link"><%= link_to "Logout", logout_path %></li>
+          <% else %>
           <li class="navbar-link"><%= link_to "Log In | Sign Up", login_path %></li>
+          <% end %>
           <li class="navbar-link"><%= link_to "View Cart" %></li>
         </ul>
         <ul class="nav navbar-nav navbar-left">

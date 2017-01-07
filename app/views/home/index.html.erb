@@ -1,7 +1,11 @@
 <!-- Header -->
 <header class="welcome-banner">
   <div class="headline">
+    <% if current_user %>
+    <h1>Welcome to the Mini Market, <%= current_user.name %>!</h1>
+    <% else %>
     <h1>Welcome to the Mini Market!</h1>
+    <% end %>
     <h3>We specialize in all things small, tiny, diminuative, little, and of course, mini.</h3>
     <button id="singlebutton" name="singlebutton" class="btn btn-primary">Browse Items by Category</button>
   </div>
