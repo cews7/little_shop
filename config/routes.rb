@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   end
 
   resources :home,            only: [:index]
-  resources :items,           only: [:index]
+  resources :items,           only: [:index, :show]
   resources :users,           only: [:new, :create]
   resources :orders,          only: [:index]
 

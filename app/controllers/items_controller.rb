@@ -1,4 +1,5 @@
 class ItemsController < ApplicationController
+
   def index
     @cart_items = cart.items
     if request.original_fullpath == '/items'
@@ -8,4 +9,10 @@ class ItemsController < ApplicationController
       @items = @category.items
     end
   end
+
+  def show
+    @cart_items = cart.items
+    @item = Item.find(params[:id])
+  end
+
 end
