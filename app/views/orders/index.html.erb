@@ -22,7 +22,7 @@
               <img><%= image_tag cart_item.image, class: "img-responsive" %></img>
             </div>
   					<div class="col-sm-10">
-  						<h3 class="nomargin"><%= cart_item.title %></h3>
+  						<h3 class="nomargin"><%= link_to "#{cart_item.title}", item_path(cart_item.id) %></h3>
               <p><%= cart_item.description %></p>
   					</div>
   				</div>
