@@ -29,14 +29,12 @@
               <h3 class="item-title"><%= item.title %></h3>
               <p class="item-description"><%= item.description %></p>
               <div class="row">
-                <div class="col-xs-12 col-md-6">
-                  <p class="item-price"><%= "$#{item.price}" %></p>
-                </div>
+                <p class="item-price"><%= "$#{item.price}" %></p>
               </div>
               <div class="row">
                 <div class="item-cart-btn">
                   <% if item.retired? %>
-                    <p> Item Retired </p>
+                    <a class="btn btn-danger btn-large btn-block disabled">Item Retired</a>
                   <%else %>
                     <a><%= button_to "Add to Cart", cart_items_path(item_id: item.id), class:"btn btn-primary btn-large btn-block" %></a>
                  <% end %>
