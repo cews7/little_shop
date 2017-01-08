@@ -12,4 +12,5 @@ class CartController < ApplicationController
     @items = session[:cart] || {}
   end
 
+
 end

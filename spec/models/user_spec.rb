@@ -50,9 +50,25 @@ describe User do
 
     context "valid attributes when creating a user" do
       it "is valid with all attributes" do
-        user = User.create(name: "John Smith", email: "sample2@sample.com", password_digest: "1234567", password_digest_confirmation: "1234567")
+        user = User.create(name: "John Smith", email: "sample4@sample.com", password_digest: "1234567", password_digest_confirmation: "1234567")
 
         expect(user).to be_valid
+      end
+    end
+
+    context "users can be created as admins" do
+      it "user can be an admin" do
+        user = User.create(name: "John Smith", email: "sample2@sample.com", password_digest: "1234567", password_digest_confirmation: "1234567", role: 1)
+
+        expect(user.role).to eq("admin")
+        expect(user.admin?).to be_truthy
+      end
+
+      it "user can be created as a default user" do
+        user = User.create(name: "John Smith", email: "sample2@sample.com", password_digest: "1234567", password_digest_confirmation: "1234567", role: 0)
+
+        expect(user.role).to eq("default")
+        expect(user.default?).to be_truthy
       end
     end
   end
