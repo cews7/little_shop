@@ -5,6 +5,10 @@ Rails.application.routes.draw do
     resources :items,         only: [:index]
   end
 
+  namespace :admin do
+    resources :home,            only: [:index]
+  end
+
   resources :home,            only: [:index]
   resources :items,           only: [:index]
   resources :users,           only: [:new, :create]
