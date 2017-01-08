@@ -1,10 +1,12 @@
 class UsersController < ApplicationController
 
   def new
+    @cart_items = cart.items
     @user = User.new
   end
 
   def create
+    @cart_items = cart.items
     @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id
@@ -17,7 +19,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+    @cart_items = cart.items
   end
 
 

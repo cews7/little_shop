@@ -3,7 +3,12 @@
   padding-right: 15px;
 }
 
-.navbar-link a {
+.navbar-link-categories,
+.navbar-link-items,
+.navbar-link-logged-in,
+.navbar-link-logout,
+.navbar-link-login,
+.navbar-link-cart a {
   color: $navbar-link;
   text-decoration: none;
   font-weight: 300;
