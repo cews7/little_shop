@@ -19,7 +19,7 @@ describe "Visitor can create an account" do
     fill_in "user[password_confirmation]", with: password
     click_button "Create Account!"
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Welcome to the Mini Market, John Smith!")
   end
 end

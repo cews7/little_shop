@@ -8,7 +8,7 @@ class UsersController < ApplicationController
     @user = User.create(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to dashboard_path(@user.id)
+      redirect_to dashboard_path
       flash[:success] = "#{@user.name} successfully created!"
     else
       redirect_to new_user_path
@@ -17,7 +17,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    
+
   end
 
 
