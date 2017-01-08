@@ -13,7 +13,8 @@ RSpec.feature "User can log in" do
 
     click_button "Login"
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Welcome to the Mini Market, #{user_1.name}")
+    expect(page).to have_content("jo@jo.com")
   end
 end
