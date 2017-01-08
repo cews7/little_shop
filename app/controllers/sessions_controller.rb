@@ -1,9 +1,11 @@
 class SessionsController < ApplicationController
   def new
+    @cart_items = cart.items
     redirect_to root_path if current_user != nil
   end
 
   def create
+    @cart_items = cart.items
     @user = User.find_by(email: params[:session][:email])
     if @user && @user.authenticate(params[:session][:password])
       session[:user_id] = @user.id

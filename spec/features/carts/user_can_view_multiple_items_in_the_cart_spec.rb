@@ -24,7 +24,6 @@ RSpec.feature "When a user adds multiple items to their cart", type: :feature do
       expect(page).to have_content("This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?")
 
       expect(page).to have_content(19999.99)
-      # expect(page).to have_css("img[src=\"#{item_1.image}\"]")
     end
   end
 end
