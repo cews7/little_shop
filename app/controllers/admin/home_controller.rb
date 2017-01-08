@@ -3,6 +3,7 @@ class Admin::HomeController < ApplicationController
 
   def index
     @items = Item.all
+    
     @cart_items = cart.items
   end
 end
