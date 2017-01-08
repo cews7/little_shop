@@ -31,14 +31,12 @@
   			<td data-th="Quantity">
   				<p><%= form_tag cart_item_update_path(:cart_item => cart_item) do %>
                 <%= select_tag :cart_item_quantity, options_for_select((1..500), cart_item.quantity) %>
-                <%= submit_tag "Update" %>
+                <%= submit_tag "Update" , class: "btn btn-info btn-sm" %>
               <% end %>
   			</td>
   			<td data-th="Subtotal" class="text-center"><%= "$#{subtotal(cart_item.price, cart_item.quantity)}" %>
         </td>
   			<td class="actions" data-th="">
-  				<!-- <button class="btn btn-info btn-sm"><i class="fa fa-refresh"></i></button> -->
-  				<!-- <button class="btn btn-danger btn-sm"><i class="fa fa-trash-o"></i></button> -->
           <a><%= button_to "Delete from Cart", delete_cart_items_path(cart_item_id: cart_item.id), class:"btn btn-danger" %></a>
   			</td>
         <% end %>
