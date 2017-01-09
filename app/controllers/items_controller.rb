@@ -7,6 +7,7 @@ class ItemsController < ApplicationController
     else
       @category = Category.find(params[:category_id])
       @items = @category.items
+
     end
   end
 
