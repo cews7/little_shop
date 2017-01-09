@@ -25,6 +25,4 @@ class ApplicationController < ActionController::Base
       @current_cart = @cart_items
     end
   end
-
-
 end

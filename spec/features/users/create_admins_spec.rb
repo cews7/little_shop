@@ -12,7 +12,7 @@ describe "Admin visits the admin page" do
   end
   context "as default user" do
     it "default users can not see the admin page" do
-      user = User.create(name: "John Smith", email: "sample2@sample.com", password_digest: "1234567", password_digest_confirmation: "1234567", role: 0)
+      user = User.create(name: "John Smith", email: "sample2@sample.com", password: "1234567", password_confirmation: "1234567", role: 0)
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:default)
       visit admin_home_index_path
