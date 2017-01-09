@@ -4,5 +4,11 @@ class CategoriesController < ApplicationController
     @categories = Category.all
   end
 
+  def show
+    @cart_items = cart.items
+    @category = Category.friendly.find(params[:id])
+    @items = @category.items
+  end
+
 
 end

@@ -1,6 +1,6 @@
 <div class="container">
 
-  <h1 class="page-header">All Items</h1>
+  <h1 class="page-header"><%= @items.first.category.title %></h1>
 
   <% @items.each do |item| %>
     <div class="item col-xs-4 col-lg-4">
