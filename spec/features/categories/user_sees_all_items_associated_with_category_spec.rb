@@ -14,7 +14,7 @@ describe "User sees all items associated with given category" do
      price: 299.99, image: "https://s-media-cache-ak0.pinimg.com/236x/2f/cb/b9/2fcbb9a477214eb0c2cf912914b3f023.jpg",
      category_id: category_2.id)
 
-    visit category_items_path(category_1.id)
+    visit category_path(category_1.id)
 
     expect(page).to have_content("Tea Cup Pig")
     expect(page).to have_content("This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?")
