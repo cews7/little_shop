@@ -1,5 +1,24 @@
-<h1><%= @item.title %></h1>
-
-<h2><%= @item.description %></h2>
-
-<h3><%= @item.price %></h3>
+<div class="container">
+  <div class="item-info">
+    <div class="row">
+      <div class="col-xs-6 hidden-xl">
+        <%= image_tag(@item.image, class: 'img-responsive')%>
+      </div>
+      <div class="col-xs-6  col-right">
+        <ul class="nav nav-list">
+          <h2><%= @item.title %><br></h2>
+          <hr>
+          <li class="divider"></li>
+          <%= "$ #{@item.price}" %><br><br>
+          <%= @item.description %><br><br><br>
+          <div class="col-xs-3">
+            <% if @item.retired? %>
+            <a class="btn btn-danger btn-large btn-block disabled">Item Retired</a>
+            <%else %>
+            <a><%= button_to "Add to Cart", cart_items_path(item_id: @item.id), class:"btn btn-primary btn-large btn-block" %></a>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
