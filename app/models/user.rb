@@ -1,9 +1,9 @@
 class User < ApplicationRecord
  has_secure_password
- validates :name, :email, :password_digest, presence: true
- validates :password_digest, confirmation: true
+ validates :name, :email, presence: true
+ validates :password, confirmation: true
  validates :email, uniqueness: true
- validates :password_digest, presence: true, length: { minimum: 6 }, allow_nil: true
+ validates :password, presence: true, length: { minimum: 6 }, allow_nil: true 
  has_many  :orders
 
  enum role: %w(default admin)
