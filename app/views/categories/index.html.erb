@@ -6,9 +6,9 @@
   <% @categories.each do |category| %>
     <div class="item col-xs-4 col-lg-4">
       <div class="thumbnail">
-        <img href=category_items_path(@category.id)> <%= image_tag(category.image, class: 'img-responsive') %></img>
+        <%= image_tag(category.image, class: 'img-responsive') %>
         <div class="caption">
-          <%= link_to category.title, category_items_path(category.id) %><br />
+          <%= link_to category.title, category_path(category) %><br />
         </div>
       </div>
     </div>
