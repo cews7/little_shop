@@ -78,6 +78,8 @@ GEM
     faker (1.6.6)
       i18n (~> 0.5)
     ffi (1.9.14)
+    friendly_id (5.1.0)
+      activerecord (>= 4.0.0)
     globalid (0.3.7)
       activesupport (>= 4.1.0)
     i18n (0.7.0)
@@ -214,6 +216,7 @@ DEPENDENCIES
   database_cleaner
   factory_girl_rails
   faker
+  friendly_id (~> 5.1.0)
   jbuilder (~> 2.5)
   jquery-rails
   launchy
