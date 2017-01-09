@@ -4,6 +4,7 @@ class User < ApplicationRecord
  validates :password_digest, confirmation: true
  validates :email, uniqueness: true
  validates :password_digest, presence: true, length: { minimum: 6 }, allow_nil: true
+ has_many  :orders
 
  enum role: %w(default admin)
 end
