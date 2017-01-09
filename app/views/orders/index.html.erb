@@ -45,7 +45,7 @@
         </td>
   		</tr>
   		<tr>
-  			<td><a href="/items" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+        <%= link_to "Continue Shopping", items_path, class: "btn btn-warning fa fa-angle-left" %>
   			<td colspan="2" class="hidden-xs"></td>
   			<td class="hidden-xs text-center"><strong>Order Total: <%= "$#{cart_total(@cart_items)}" %></strong></td>
   		</tr>
