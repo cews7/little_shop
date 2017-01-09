@@ -41,7 +41,7 @@ ActiveRecord::Schema.define(version: 20170108190230) do
     t.datetime "updated_at",                  null: false
     t.string   "password_digest"
     t.integer  "role",            default: 0
-  end 
+  end
 
   add_foreign_key "items", "categories"
 end
