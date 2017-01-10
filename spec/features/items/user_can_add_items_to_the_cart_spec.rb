@@ -10,7 +10,6 @@ RSpec.feature "When a user adds items to their cart", type: :feature do
   scenario "an item is added to the cart" do
     visit items_path
     click_button "Add to Cart"
-    click_button "Add to Cart"
 
     visit cart_path
     expect(page).to have_content("Miniature Pony")

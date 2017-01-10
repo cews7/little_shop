@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper_method :current_user, :current_admin, :require_admin, :current_cart
 
   def cart
-    Cart.new(session[:cart])
+    @cart ||= Cart.new(session[:cart])
   end
 
   def current_user
@@ -29,5 +29,5 @@ class ApplicationController < ActionController::Base
   def order
     Order.new
   end
-  
+
 end
