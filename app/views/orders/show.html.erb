@@ -42,11 +42,14 @@
   	<tfoot>
   		<tr class="visible-xs">
   		</tr>
-  		<tr>
-        <td><a><%= link_to "Back to Order History", orders_path, class: "btn btn-warning btn-block" %></a></td>
+    <div class="col-xs-6 .col-sm-4">
+      <tr>
+        <td colspan="2" class="hidden-xs"></td>
+        <td><a><%= link_to "Back to Order History", orders_path, class: "btn btn-primary btn-block col-xs-6 col-sm-4" %></a></td>
         <td><a><%= link_to "Continue Shopping", items_path, class: "btn btn-warning btn-block" %></a></td>
   			<td colspan="2" class="hidden-xs"></td>
   		</tr>
+    </div>
   	</tfoot>
   </table>
 
