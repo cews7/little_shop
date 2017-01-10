@@ -16,7 +16,7 @@
       <% @orders.each do |order| %>  		<tr>
         <td data-th="Product">
           <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-6 text-centered">
               <%= link_to "View Order", order_path(order.id), class: "btn btn-primary btn-large btn-block" %>
             </div>
           </div>

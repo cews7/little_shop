@@ -87,5 +87,23 @@ RSpec.feature "When a user clicks on the links in the nav bar it takes you to th
 
       expect(current_path).to eq(root_path)
     end
+
+    it "user clicks on the logout button in the navbar" do
+      user = User.create!(name: "John Smith", email: "jo@jo.com", password: "1234567", password_confirmation: "1234567")
+      visit login_path
+
+      fill_in :session_email, with: user.email
+      fill_in :session_password, with: user.password
+
+      click_button "Login"
+
+      visit root_path
+
+      within(".navbar-link-orders") do
+        click_link("Orders")
+      end
+
+      expect(current_path).to eq(orders_path)
+    end
   end
 end

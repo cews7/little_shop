@@ -17,5 +17,8 @@
   <%= current_user.name %>
 <h1> Email </h1>
   <%= current_user.email %>
+<h1> Number of Orders </h1>
+  <%= @orders.count %><br><br>
+  <a><%= button_to "View Order History", orders_path, class:"btn btn-primary" %></a>
 <hr>
 </div>

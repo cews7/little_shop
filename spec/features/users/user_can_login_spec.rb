@@ -16,5 +16,7 @@ RSpec.feature "User can log in" do
     expect(current_path).to eq(dashboard_path)
     expect(page).to have_content("Welcome to the Mini Market, #{user_1.name}")
     expect(page).to have_content("jo@jo.com")
+    expect(page).to have_content(user_1.orders.count)
+    expect(page).to have_selector(:link_or_button, "View Order History")
   end
 end
