@@ -5,6 +5,10 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+categories.delete_all
+items.delete_all
+
+
 
 categories = [{title: "Animals", image: "http://wallpaper-gallery.net/images/animal/animal-13.jpg"},
               {title: "Cars", image: "http://media.caranddriver.com/images/16q1/665057/buick-avista-concept-dissected-design-powertrain-and-more-feature-car-and-driver-photo-666699-s-450x274.jpg"},

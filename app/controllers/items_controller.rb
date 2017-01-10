@@ -1,5 +1,4 @@
 class ItemsController < ApplicationController
-
   def index
     @cart_items = cart.items
     @items = Item.all
@@ -9,5 +8,4 @@ class ItemsController < ApplicationController
     @cart_items = cart.items
     @item = Item.find(params[:id])
   end
-
 end
