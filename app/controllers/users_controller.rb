@@ -21,6 +21,7 @@ class UsersController < ApplicationController
   def show
     @orders = Order.where(user_id: session[:user_id])
     @cart_items = cart.items
+    
   end
 
 
