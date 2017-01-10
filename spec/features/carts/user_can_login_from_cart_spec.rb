@@ -23,6 +23,6 @@ RSpec.feature "When a user logs in on the cart page they see new information" do
 
     visit cart_path
 
-    expect(page).to have_content("Checkout")
+    expect(page).to have_selector(:link_or_button, 'Checkout')
   end
 end

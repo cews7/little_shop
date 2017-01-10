@@ -31,6 +31,7 @@
            <% elsif current_user %>
             <li class="navbar-link-logged-in"><%= link_to "Logged in as #{current_user.name}", dashboard_path %></li>
             <li class="navbar-link-logout"><%= link_to "Logout", logout_path %></li>
+            <li class="navbar-link-orders"><%= link_to "Orders", orders_path %></li>
          <% else %>
            <li class="navbar-link-login"><%= link_to "Log In | Sign Up", login_path %></li>
          <% end %>

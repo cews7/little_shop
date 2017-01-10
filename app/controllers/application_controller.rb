@@ -27,6 +27,7 @@ class ApplicationController < ActionController::Base
   end
 
   def order
-    Order.new(session[:cart])
+    Order.new
   end
+  
 end

@@ -49,14 +49,14 @@
         </td>
   		</tr>
   		<tr>
-  			<td><a href="/items" class="btn btn-warning"><i class="fa fa-angle-left"></i> Continue Shopping</a></td>
+        <td><%= link_to "Continue Shopping", items_path, class: "btn btn-warning fa fa-angle-left" %></td>
   			<td colspan="2" class="hidden-xs"></td>
   			<td class="hidden-xs text-center"><strong>Total Price: <%= "$#{cart_total(@cart_items)}" %></strong></td>
   			<td>
           <% if current_user %>
             <a><%= button_to "Checkout", new_order_path, class:"btn btn-primary" %></a>
           <% else %>
-            <a href="/login" class="btn btn-success btn-block"> Log In | Sign Up to Checkout</a>
+            <%= link_to "Log In | Sign Up to Checkout", login_path, class: "btn btn-success btn-block" %>
           <% end %>
         </td>
   		</tr>

@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   resources :items,                    only: [:index, :show]
   resources :home,                     only: [:index]
   resources :users,                    only: [:new, :create]
-  resources :orders,                   only: [:index, :show]
+  resources :orders,                   only: [:index, :show, :create]
   resources :categories,               only: [:index]
 
   get "/login",                        to: "sessions#new"
