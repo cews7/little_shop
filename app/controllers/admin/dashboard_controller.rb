@@ -9,7 +9,6 @@ class Admin::DashboardController < ApplicationController
   def edit
     @user = User.find(params[:id])
     @cart_items = cart.items
-
   end
 
   def update
@@ -19,8 +18,8 @@ class Admin::DashboardController < ApplicationController
       redirect_to admin_dashboard_index_path
       flash[:success] = "Admin profile successfully updated!"
     else
-      render :edit
       flash[:danger] = "Admin profile has NOT been updated!"
+      render :edit
     end
   end
 
