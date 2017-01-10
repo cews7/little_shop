@@ -1,7 +1,7 @@
 <div class="container">
 	<div class="row">
       <fieldset>
-      <legend>Edit Admin Account</legend>
+      <legend>Edit Admin Account: Please fill in every field</legend>
       <%= form_for @user, url: admin_dashboard_path, action: :update, method: :patch, :html => {:class => "form-horizontal center"} do |f| %>
         <div class="form-group">
           <%= f.label :name, "Name Change:", class: "col-md-4 control-label" %>

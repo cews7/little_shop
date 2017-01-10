@@ -13,6 +13,7 @@ class Admin::DashboardController < ApplicationController
   end
 
   def update
+    @cart_items = cart.items
     @user = User.find(params[:id])
     if @user.update(user_params)
       redirect_to admin_dashboard_index_path

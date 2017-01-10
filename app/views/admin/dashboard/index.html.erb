@@ -2,5 +2,9 @@
 <h1> Admin Dashboard </h1>
 <div class="col-12">
 <%= link_to "Edit Admin Account", edit_admin_dashboard_path(id: current_user.id), class: "btn btn-primary btn-block" %>
+<h1> Name </h1>
+ <%= current_user.name %>
+<h1> Email </h1>
+ <%= current_user.email %>
 </div>
 </div>
