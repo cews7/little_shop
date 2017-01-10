@@ -19,35 +19,32 @@
   		</tr>
   	</thead>
   	<tbody>
-      <% @cart_items.each do |cart_item| %>
+      <% @items.each do |order_item| %>
   		<tr>
   			<td data-th="Product">
   				<div class="row">
   					<div class="col-sm-2 hidden-xs">
-              <img><%= image_tag cart_item.image, class: "img-responsive" %></img>
+              <img><%= image_tag order_item.image, class: "img-responsive" %></img>
             </div>
   					<div class="col-sm-10">
-  						<h3 class="nomargin"><%= link_to "#{cart_item.title}", item_path(cart_item.id) %></h3>
-              <p><%= cart_item.description %></p>
+  						<h3 class="nomargin"><%= link_to "#{order_item.title}", item_path(order_item.id) %></h3>
+              <p><%= order_item.description %></p>
   					</div>
   				</div>
   			</td>
-  			<td data-th="Price"><%="$#{cart_item.price}" %></td>
-  			<td data-th="Quantity" class="text-center"><%="#{cart_item.quantity}" %></td>
-  			<td data-th="Total" class="text-center"><%= "$#{subtotal(cart_item.price, cart_item.quantity)}" %></td>
+  			<td data-th="Price"><%="$#{order_item.price}" %></td>
+
         <% end %>
   		</tr>
   	</tbody>
   	<tfoot>
   		<tr class="visible-xs">
   			<td class="text-center">
-          <strong>Order Total: <%= "$#{cart_total(@cart_items)}" %></strong>
         </td>
   		</tr>
   		<tr>
   			<td><a href="/orders" class="btn btn-primary"><i class="fa fa-angle-left"></i> Back to Order History</a></td>
   			<td colspan="2" class="hidden-xs"></td>
-  			<td class="hidden-xs text-center"><strong>Order Total: <%= "$#{cart_total(@cart_items)}" %></strong></td>
   		</tr>
   	</tfoot>
   </table>

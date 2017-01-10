@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170109200727) do
+ActiveRecord::Schema.define(version: 20170109224813) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -47,6 +47,14 @@ ActiveRecord::Schema.define(version: 20170109200727) do
     t.integer  "category_id"
     t.boolean  "retired"
     t.index ["category_id"], name: "index_items_on_category_id", using: :btree
+  end
+
+  create_table "order_items", force: :cascade do |t|
+    t.integer "item_id"
+    t.integer "order_id"
+    t.integer "quantity"
+    t.index ["item_id"], name: "index_order_items_on_item_id", using: :btree
+    t.index ["order_id"], name: "index_order_items_on_order_id", using: :btree
   end
 
   create_table "orders", force: :cascade do |t|

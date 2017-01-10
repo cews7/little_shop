@@ -18,21 +18,4 @@ class CartItemsController < ApplicationController
     redirect_to cart_path
   end
 
-
-  def destroy
-    # byebug
-
-    item = Item.find(params[:cart_item_id])
-    cart.delete_item(item)
-    # @cart_items = cart.items
-    # @cart_items.map do |cart_item|
-    #   if cart_item.title == item.title
-    #     cart_item.delete
-    #   end
-    # end
-    # flash[:notice] = <%= %Q[link_To Deleted #{item.title}] %>
-    redirect_to cart_path
-  end
-
-
 end
