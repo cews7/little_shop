@@ -7,7 +7,7 @@ describe "Admin visits the admin page" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:admin)
       visit admin_dashboard_index_path
-      expect(page).to have_content("Admin Page")
+      expect(page).to have_content("Admin Dashboard")
     end
   end
   context "as default user" do
@@ -16,7 +16,7 @@ describe "Admin visits the admin page" do
 
       allow_any_instance_of(ApplicationController).to receive(:current_user).and_return(:default)
       visit admin_dashboard_index_path
-      expect(page).to_not have_content("Admin Page")
+      expect(page).to_not have_content("Admin Dashboard")
       expect(page).to have_content("You are being redirected")
     end
   end

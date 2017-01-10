@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin
-    current_user && current_user == :admin
+    current_user && current_user.role == :admin.to_s
   end
 
   def require_admin
@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
       @current_cart = @cart_items
     end
   end
-  
+
   def order
     Order.new(session[:cart])
   end

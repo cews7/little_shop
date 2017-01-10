@@ -20,6 +20,7 @@ class UsersController < ApplicationController
 
   def show
     @cart_items = cart.items
+    
   end
 
 

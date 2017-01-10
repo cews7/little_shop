@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   namespace :admin do
-    resources :dashboard,                   only: [:index]
+    resources :dashboard,              only: [:index]
   end
 
   resources :items,                    only: [:index, :show]
