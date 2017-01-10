@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-
   def new
     @cart_items = cart.items
     @user = User.new
@@ -20,13 +19,10 @@ class UsersController < ApplicationController
 
   def show
     @orders = Order.where(user_id: session[:user_id])
-    @cart_items = cart.items
-    
+    @cart_items = cart.items    
   end
 
-
   private
-
   def user_params
     params.require(:user).permit(:name, :email, :password, :password_confirmation)
   end

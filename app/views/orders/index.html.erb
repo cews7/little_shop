@@ -8,7 +8,7 @@
         <th class="col-sm-6"><%= "View Order" %></th>
         <th class="col-sm-2"><%= "Order Number" %></th>
         <th class="col-sm-2"><%= "Status" %></th>
-        <th class="col-sm-2"><%= "Quantity" %></th>
+        <th class="col-sm-2"><%= "Order Date" %></th>
       </tr>
     </thead>
     <tbody>
@@ -22,7 +22,7 @@
         </td>
         <td data-th"Order ID"><h3><%= order.id %></h3>
         <td data-th"Status" class="text-center"><h3><%= order.status %></h3></td>
-        <td data-th="Created_at" class="text-center"><h3><%= order.created_at %></h3></td>
+        <td data-th="Created_at" class="text-center"><h3><%= order.created_at.strftime("%d %b. %Y") %></h3></td>
         <% end %>
       </tr>
     </tbody>

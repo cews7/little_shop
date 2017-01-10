@@ -1,5 +1,4 @@
 class CategoriesController < ApplicationController
-
   def index
     @cart_items = cart.items
     @categories = Category.all
@@ -10,6 +9,4 @@ class CategoriesController < ApplicationController
     @category = Category.friendly.find(params[:id])
     @items = @category.items
   end
-
-
 end

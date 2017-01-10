@@ -5,7 +5,7 @@
   </div>
 
   <div class="col-lg-12">
-    <h4> Order Date: <%= @order.created_at %></h4>
+    <h4> Order Date: <%= @order.created_at.strftime("%d %b. %Y") %></h4>
     <h4> Order Status: <%= @order.status %></h4>
   </div>
 
@@ -42,15 +42,12 @@
   	<tfoot>
   		<tr class="visible-xs">
   		</tr>
-    <div class="col-xs-6 .col-sm-4">
-      <tr>
-        <td colspan="2" class="hidden-xs"></td>
-        <td><a><%= link_to "Back to Order History", orders_path, class: "btn btn-primary btn-block col-xs-6 col-sm-4" %></a></td>
+  		<tr>
+        <td><a><%= link_to "Back to Order History", orders_path, class: "btn btn-primary btn-large btn-block" %></a></td>
         <td><a><%= link_to "Continue Shopping", items_path, class: "btn btn-warning btn-block" %></a></td>
   			<td colspan="2" class="hidden-xs"></td>
   		</tr>
     </div>
   	</tfoot>
   </table>
-
 </div>
