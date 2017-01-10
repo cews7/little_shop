@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "When a user visits the visits the home page they see content", type: :feature do
-
   context "When the user visits the home page as a guest" do
     let(:category) {Category.create!(title: "Animals")}
     scenario "User sees main content" do

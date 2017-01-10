@@ -1,5 +1,4 @@
 class CartItemsController < ApplicationController
-
   def create
     item = Item.find(params[:item_id])
     cart.add_item(item)
@@ -17,5 +16,4 @@ class CartItemsController < ApplicationController
     cart.update(item, item_quantity)
     redirect_to cart_path
   end
-
 end

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Visitor can create an account" do
+RSpec.feature "Visitor can create an account" do
   it "user is created" do
     visit root_path
     click_link "Log In | Sign Up"

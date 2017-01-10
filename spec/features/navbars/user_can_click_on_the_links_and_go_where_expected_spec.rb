@@ -1,13 +1,11 @@
 require 'rails_helper'
 
 RSpec.feature "When a user clicks on the links in the nav bar it takes you to the expected page", type: :feature do
-
   it "user clicks on the logo button in the navbar" do
     visit cart_path
     within(".navbar-header") do
       click_link("Minimarket logo")
     end
-
     expect(current_path).to eq(root_path)
   end
 
@@ -17,7 +15,6 @@ RSpec.feature "When a user clicks on the links in the nav bar it takes you to th
     within(".navbar-link-categories") do
       click_link("Categories")
     end
-
     expect(current_path).to eq(categories_path)
   end
 
@@ -27,7 +24,6 @@ RSpec.feature "When a user clicks on the links in the nav bar it takes you to th
     within(".navbar-link-items") do
       click_link("Items")
     end
-
     expect(current_path).to eq(items_path)
   end
 
@@ -37,7 +33,6 @@ RSpec.feature "When a user clicks on the links in the nav bar it takes you to th
     within(".navbar-link-login") do
       click_link("Log In | Sign Up")
     end
-
     expect(current_path).to eq(login_path)
   end
 
@@ -47,7 +42,6 @@ RSpec.feature "When a user clicks on the links in the nav bar it takes you to th
     within(".navbar-link-cart") do
       click_link("Cart")
     end
-
     expect(current_path).to eq(cart_path)
   end
   context "when a user is logged in it sees different buttons in the navbar" do
@@ -66,7 +60,6 @@ RSpec.feature "When a user clicks on the links in the nav bar it takes you to th
       within(".navbar-link-logged-in") do
         click_link("Logged in as #{user.name}")
       end
-
       expect(current_path).to eq(dashboard_path)
     end
 
@@ -84,7 +77,6 @@ RSpec.feature "When a user clicks on the links in the nav bar it takes you to th
       within(".navbar-link-logout") do
         click_link("Logout")
       end
-
       expect(current_path).to eq(root_path)
     end
 
