@@ -1,10 +1,8 @@
 module ApplicationHelper
   def cart_total(cart_items)
-    cart_prices = []
-    cart_items.map do |item|
-      cart_prices << item.price * item.quantity
+    cart_prices = cart_items.map do |item|
+      item.price * item.quantity
     end
-
     if cart_prices.reduce(:+).nil?
       cart_prices = 0.00
     else
@@ -17,18 +15,14 @@ module ApplicationHelper
   end
 
   def count(cart_items)
-    count = []
-    cart_items.each do |item|
-      count << item.quantity
-    end
-    count.reduce(:+)
+    cart_items.map do |item|
+      item.quantity
+    end.reduce(:+)
   end
 
   def order_total(order_items)
-    order_prices = []
     order_items.map do |item|
-      order_prices << item.first.price * item.count
-    end
-    order_prices.reduce(:+)
+      item.first.price * item.count
+    end.reduce(:+)
   end
 end
