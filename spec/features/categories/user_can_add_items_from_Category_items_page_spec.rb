@@ -1,7 +1,6 @@
 require 'rails_helper'
 
 RSpec.feature "When a user adds items to their cart from the category items path", type: :feature do
-
   scenario "an item is added to the cart" do
     category = Category.create(title: "Animals")
     item = Item.create(title: "Miniature Pony", price: 19999.99, description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",

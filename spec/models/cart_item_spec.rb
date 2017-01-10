@@ -7,6 +7,7 @@ describe CartItem do
     price: 19999.99, image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg",
     category_id: category.id)
     cart_item = CartItem.new(item)
+    
     expect(cart_item.title). to eq("Miniature Pony")
   end
 

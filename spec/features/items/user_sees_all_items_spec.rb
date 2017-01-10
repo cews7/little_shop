@@ -20,5 +20,4 @@ describe "User sees all items" do
     expect(page).to have_content(199.99)
     expect(page).to have_content("This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?")
   end
-
 end

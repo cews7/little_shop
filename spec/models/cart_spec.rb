@@ -28,6 +28,7 @@ describe Cart do
       data = {}
       data[item.id.to_s] = 2
       cart = Cart.new(data)
+
       expect(cart.data).to eq({item.id.to_s => 2})
     end
   end
@@ -39,11 +40,12 @@ describe Cart do
       price: 19999.99, image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg",
       category_id: category.id)
       cart = Cart.new(nil)
-
       cart.add_item(item)
+
       expect(cart.data).to eq({item.id.to_s => 1})
 
       cart.add_item(item)
+
       expect(cart.data).to eq({item.id.to_s => 2})
     end
   end
@@ -65,7 +67,6 @@ describe Cart do
       cart.delete_item(item_2)
 
       expect(cart.data.count).to eq(1)
-
     end
   end
 
@@ -84,5 +85,4 @@ describe Cart do
       expect(cart.data).to have_value(5)
     end
   end
-
-  end
+end

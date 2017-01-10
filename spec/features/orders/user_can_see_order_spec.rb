@@ -63,5 +63,4 @@ RSpec.feature "When a logged in user checks out an item", type: :feature do
       expect(page).to have_selector(:link_or_button, "View Order")
     end
   end
-
 end
