@@ -3,10 +3,11 @@ class OrdersController < ApplicationController
   def show
     @cart_items = cart.items
     @order = Order.find(params[:id])
-    @items = []
+    items = []
     @order.order_items.each do |item|
-    @items <<  Item.find(item.item_id)
+      item.quantity.times {items << Item.find(item.item_id)}
     end
+    @items = items.group_by(&:itself)
   end
 
   def index
@@ -19,9 +20,23 @@ class OrdersController < ApplicationController
   def create
     @order = Order.new
     @order.save
-    session[:cart].each do |item_id, quantity|
-      @order.order_items.create(item_id: item_id, quantity: quantity)
+    contents_determination
+    cart_saving
+  end
+
+private
+
+  def contents_determination
+    if session[:cart].nil?
+      flash[:danger] = "You currently don't have any orders, have you shopped with us before?"
+    else
+      session[:cart].each do |item_id, quantity|
+        @order.order_items.create(item_id: item_id, quantity: quantity)
+      end
     end
+  end
+
+  def cart_saving
     if @order.save
       @order.user_id = session[:user_id]
       @order.status = "ordered"
@@ -32,5 +47,4 @@ class OrdersController < ApplicationController
       redirect_to cart_items_path
     end
   end
-
 end

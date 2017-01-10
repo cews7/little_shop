@@ -23,4 +23,12 @@ module ApplicationHelper
     end
     count.reduce(:+)
   end
+
+  def order_total(order_items)
+    order_prices = []
+    order_items.map do |item|
+      order_prices << item.first.price * item.count
+    end
+    order_prices.reduce(:+)
+  end
 end

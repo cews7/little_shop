@@ -24,26 +24,27 @@
   			<td data-th="Product">
   				<div class="row">
   					<div class="col-sm-2 hidden-xs">
-              <img><%= image_tag order_item.image, class: "img-responsive" %></img>
+              <img><%= image_tag order_item.first.image, class: "img-responsive" %></img>
             </div>
   					<div class="col-sm-10">
-  						<h3 class="nomargin"><%= link_to "#{order_item.title}", item_path(order_item.id) %></h3>
-              <p><%= order_item.description %></p>
+  						<h3 class="nomargin"><%= link_to "#{order_item.first.title}", item_path(order_item.first.id) %></h3>
+              <p><%= order_item.first.description %></p>
   					</div>
   				</div>
   			</td>
-  			<td data-th="Price"><%="$#{order_item.price}" %></td>
-
+  			<td data-th="Price"><%="$#{order_item.first.price}" %></td>
+        <td data-th="Quantity"><%= order_item.count %></td>
+        <td data-th="Subtotal"><%= "$#{subtotal(order_item.first.price, order_item.count)}" %></td>
         <% end %>
   		</tr>
   	</tbody>
+    <td class="col-lg-2 col-lg-pull-5"><strong>Order Total: <%= "$#{order_total(@items)}" %></strong></td>
   	<tfoot>
   		<tr class="visible-xs">
-  			<td class="text-center">
-        </td>
   		</tr>
   		<tr>
-  			<td><a href="/orders" class="btn btn-primary"><i class="fa fa-angle-left"></i> Back to Order History</a></td>
+        <td><a><%= link_to "Back to Order History", orders_path, class: "btn btn-warning btn-block" %></a></td>
+        <td><a><%= link_to "Continue Shopping", items_path, class: "btn btn-warning btn-block" %></a></td>
   			<td colspan="2" class="hidden-xs"></td>
   		</tr>
   	</tfoot>
