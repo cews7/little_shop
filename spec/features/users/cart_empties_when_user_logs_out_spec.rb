@@ -10,7 +10,6 @@ RSpec.feature "User can log out" do
     user_1 = User.create!(name: "John Smith", email: "jo@jo.com", password: "1234567", password_confirmation: "1234567")
     visit items_path
     click_button "Add to Cart"
-    click_button "Add to Cart"
 
     click_link "Log In | Sign Up"
     expect(current_path).to eq(login_path)

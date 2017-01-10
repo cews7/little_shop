@@ -3,7 +3,7 @@ require "rails_helper"
 RSpec.feature "When a user logs in on the cart page they see new information" do
   let(:user) {User.create!(name: "John Smith", email: "jo@jo.com", password: "1234567", password_confirmation: "1234567")}
 
-  scenario "a user doesn't see logout functionality" do
+  scenario "a guest doesn't see logout functionality" do
     visit cart_path
 
     expect(page).to have_content("Log In | Sign Up to Checkout")
@@ -23,6 +23,7 @@ RSpec.feature "When a user logs in on the cart page they see new information" do
 
     visit cart_path
 
+    expect(page).to_not have_content("Log In | Sign Up to Checkout")
     expect(page).to have_selector(:link_or_button, 'Checkout')
   end
 end
