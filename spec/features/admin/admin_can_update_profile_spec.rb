@@ -43,6 +43,7 @@ describe "Admin visits the admin dashboard page" do
       click_button "Login"
 
       expect(current_path).to eq(admin_dashboard_index_path)
+      expect(page).to have_content("Admin Dashboard")
       expect(page).to have_content("John2")
       expect(page).to have_content("john2@smith.com")
       expect(page).to have_content("Logged in as Admin John2")
@@ -89,6 +90,7 @@ describe "Admin visits the admin dashboard page" do
       click_button "Login"
 
       expect(current_path).to eq(admin_dashboard_index_path)
+      expect(page).to have_content("Admin Dashboard")
       expect(page).to have_content("John2")
       expect(page).to have_content("john@smith.com")
       expect(page).to have_content("Logged in as Admin John2")
@@ -120,7 +122,7 @@ describe "Admin visits the admin dashboard page" do
 
       expect(current_path).to eq(admin_dashboard_index_path)
       expect(page).to have_content("Admin Dashboard")
-      expect(page).to have_content("John2")
+      expect(page).to have_content("John")
       expect(page).to have_content("john2@smith.com")
       expect(page).to have_content("Admin profile successfully updated!")
 
@@ -131,13 +133,14 @@ describe "Admin visits the admin dashboard page" do
       click_link "Log In | Sign Up"
 
       fill_in :session_email, with: "john2@smith.com"
-      fill_in :session_password, with: "7654321"
+      fill_in :session_password, with: "1234567"
       click_button"Login"
 
       expect(current_path).to eq(admin_dashboard_index_path)
-      expect(page).to have_content("John2")
+      expect(page).to have_content("Admin Dashboard")
+      expect(page).to have_content("John")
       expect(page).to have_content("john2@smith.com")
-      expect(page).to have_content("Logged in as Admin John2")
+      expect(page).to have_content("Logged in as Admin John")
     end
 
 #     it "allows admin to edit password profile fields" do
