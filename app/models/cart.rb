@@ -6,10 +6,10 @@ class Cart
   end
 
   def items
-      @data.map do |item_id, quantity|
-        item = Item.find(item_id)
-        CartItem.new(item, quantity)
-      end
+    @data.map do |item_id, quantity|
+      item = Item.find(item_id)
+      CartItem.new(item, quantity)
+    end
   end
 
   def add_item(item)
@@ -24,11 +24,5 @@ class Cart
   def update(item, item_quantity)
     new_data = {item.id.to_s => item_quantity.to_i}
     data.merge!(new_data)
-    # byebug
   end
-
-
-
-
-
 end

@@ -5,6 +5,4 @@ class CartItem < SimpleDelegator
     super(item)
     @quantity = quantity
   end
-
-
 end
