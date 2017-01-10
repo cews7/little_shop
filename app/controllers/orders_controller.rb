@@ -3,10 +3,11 @@ class OrdersController < ApplicationController
   def show
     @cart_items = cart.items
     @order = Order.find(params[:id])
-    @items = []
+    items = []
     @order.order_items.each do |item|
-    @items <<  Item.find(item.item_id)
+      item.quantity.times {items << Item.find(item.item_id)}
     end
+    @items = items.group_by(&:itself)
   end
 
   def index
