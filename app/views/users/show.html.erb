@@ -1,16 +1,4 @@
-<!-- Header -->
-
-<header class="welcome-banner">
-  <div class="headline">
-    <% if current_user %>
-    <h1>Welcome to the Mini Market, <%= current_user.name %>!</h1>
-    <% else %>
-    <h1>Welcome to the Mini Market!</h1>
-    <% end %>
-    <h3>We specialize in all things small, tiny, diminuative, little, and of course, mini.</h3>
-    <a id="singlebutton" name="singlebutton" class="btn btn-danger" href="/categories">Browse Items by Category</a>
-  </div>
-</header>
+<%= render partial: "shared/banner" %>
 <div class="container">
  <h3> User Information: </h3>
  <h1> Name </h1>

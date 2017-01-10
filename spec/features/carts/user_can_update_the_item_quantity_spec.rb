@@ -10,7 +10,6 @@ RSpec.feature "When a user updates the quantity of an item in the cart", type: :
   scenario "the quantity of the item in the cart is changed" do
     visit items_path
     click_button "Add to Cart"
-    click_button "Add to Cart"
 
     visit cart_path
     select "22", from: :cart_item_quantity
@@ -21,7 +20,6 @@ RSpec.feature "When a user updates the quantity of an item in the cart", type: :
 
   scenario "the subtotal of the item in the cart is changed" do
     visit items_path
-    click_button "Add to Cart"
     click_button "Add to Cart"
 
     visit cart_path
