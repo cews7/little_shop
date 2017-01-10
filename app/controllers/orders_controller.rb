@@ -35,7 +35,6 @@ private
   def order_saving
     if @order.save
       @order.user_id = session[:user_id]
-      @order.status = "ordered"
       @order.save
       session.delete(:cart)
       redirect_to order_path(@order.id)
