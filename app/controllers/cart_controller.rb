@@ -1,5 +1,4 @@
 class CartController < ApplicationController
-
   def create
     item = Item.find(params[:item_id])
     @cart.add_item(item)
@@ -11,6 +10,4 @@ class CartController < ApplicationController
     @cart_items = cart.items
     @items = session[:cart] || {}
   end
-
-
 end
