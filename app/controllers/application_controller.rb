@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   end
 
   def current_admin
-    current_user && current_user.role == :admin.to_s
+    current_user && current_user.role == "admin"
   end
 
   def require_admin
