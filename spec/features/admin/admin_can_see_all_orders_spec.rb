@@ -97,14 +97,14 @@ RSpec.feature "Admin visits the admin page" do
       page.find("#order_#{@order_1.id}").click
 
       expect(current_path).to eq(admin_order_path(@order_1.id))
-      expect(page).to     have_content("Ordered")
-      expect(page).to_not have_content("Paid")
+      expect(page).to         have_content("Ordered")
+      expect(page).to_not     have_content("Paid")
 
       page.find("#Paid").click
 
       expect(current_path).to eq(admin_order_path(@order_1.id))
-      expect(page).to     have_content("Paid")
-      expect(page).to_not have_content("Ordered")
+      expect(page).to         have_content("Paid")
+      expect(page).to_not     have_content("Ordered")
     end
 
     scenario "admin can go back to the admin dashboard by clicking on the back to admin dashboard button" do

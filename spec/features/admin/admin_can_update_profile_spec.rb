@@ -27,8 +27,8 @@ describe "Admin visits the admin dashboard page" do
       click_button "Edit Admin Account!"
 
       expect(current_path).to eq(admin_dashboard_index_path)
-      expect(page).to have_content("Admin Dashboard")
-      expect(page).to have_content("John2")
+      expect(page).to         have_content("Admin Dashboard")
+      expect(page).to         have_content("John2")
       expect(page).to have_content("john2@smith.com")
       expect(page).to have_content("Admin profile successfully updated!")
 

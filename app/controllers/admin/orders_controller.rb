@@ -26,12 +26,12 @@ class Admin::OrdersController < ApplicationController
 private
 
   def order_status
-    if params[:commit] == "Mark as Paid"
-      @order.status = "Paid"
+    if params[:commit]    == "Mark as Paid"
+      @order.status        = "Paid"
     elsif params[:commit] == "Cancel"
-      @order.status = "Canceled"
-    else params[:commit] == "Completed"
-      @order.status = "Completed"
+      @order.status        = "Canceled"
+    else params[:commit]  == "Completed"
+      @order.status        = "Completed"
     end
     @order.save
   end
