@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Mini Market</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all' %>
-    <%= javascript_include_tag 'application' %>
-  </head>
-  <body>
+<head>
+  <title>Mini Market</title>
+  <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+</head>
+<body>
   <nav class="navbar default-navbar" role="navigation">
     <div class="container-fluid">
       <div class="navbar-header">
@@ -23,27 +23,27 @@
         <ul class="nav navbar-nav navbar-right">
 
 
-         <li class="navbar-link-categories", id="btn_categories"><%= link_to "Categories", categories_path %></li>
-         <li class="navbar-link-items"><%= link_to "Items", items_path %></li>
-         <% if current_admin %>
-         <li class="navbar-link-logged-in"><%= link_to "Logged in as Admin #{current_user.name}", admin_dashboard_index_path %></li>
-           <li class="navbar-link-logout"><%= link_to "Logout", logout_path %></li>
-           <% elsif current_user %>
-            <li class="navbar-link-logged-in"><%= link_to "Logged in as #{current_user.name}", dashboard_path %></li>
-            <li class="navbar-link-logout"><%= link_to "Logout", logout_path %></li>
-            <li class="navbar-link-orders"><%= link_to "Orders", orders_path %></li>
-         <% else %>
-           <li class="navbar-link-login"><%= link_to "Log In | Sign Up", login_path %></li>
-         <% end %>
-         <li class="navbar-link-cart"><%= link_to "Cart (#{count(@cart_items)})", cart_path %></li>
+          <li class="navbar-link-categories", id="btn_categories"><%= link_to "Categories", categories_path %></li>
+          <li class="navbar-link-items"><%= link_to "Items", items_path %></li>
+          <% if current_admin %>
+          <li class="navbar-link-logged-in"><%= link_to "Logged in as Admin #{current_user.name}", admin_dashboard_index_path %></li>
+          <li class="navbar-link-logout"><%= link_to "Logout", logout_path %></li>
+          <% elsif current_user %>
+          <li class="navbar-link-logged-in"><%= link_to "Logged in as #{current_user.name}", dashboard_path %></li>
+          <li class="navbar-link-logout"><%= link_to "Logout", logout_path %></li>
+          <li class="navbar-link-orders"><%= link_to "Orders", orders_path %></li>
+          <% else %>
+          <li class="navbar-link-login"><%= link_to "Log In | Sign Up", login_path %></li>
+          <% end %>
+          <li class="navbar-link-cart"><%= link_to "Cart (#{count(@cart_items)})", cart_path %></li>
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>
-  <div>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, class: name %>
-    <% end %>
-  </div>
-    <%= yield %>
+  <% flash.each do |type, message| %>
+  <div class="panel panel-primary">
+  </br><%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
+  <% end %>
+</div>
+<%= yield %>
 </html>

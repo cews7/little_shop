@@ -13,9 +13,7 @@ RSpec.feature "When a user deletes an item from the cart", type: :feature do
 
     visit cart_path
     click_button('Delete from Cart')
-
+    expect(page).to have_content("Miniature Pony, successfully removed from cart!")
     expect(current_path).to eq(cart_path)
-    expect(page).to_not have_content("Miniature Pony")
   end
-
 end
