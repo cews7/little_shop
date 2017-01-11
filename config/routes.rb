@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "home#index"
 
   namespace :admin do
-    resources :dashboard,              only: [:index]
+    resources :dashboard,              only: [:index, :edit, :update]
   end
 
   resources :items,                    only: [:index, :show]
@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   post "/login",                       to: "sessions#create"
   get "/logout",                       to: "sessions#destroy"
   get "/dashboard",                    to: "users#show"
+  post "/admin/dashboard/:id/edit",    to: "admin/dashboard#update"
 
   post "/cart_item_update",            to: "cart_items#update"
   post "/cart_items",                  to: "cart_items#create"
