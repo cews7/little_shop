@@ -34,4 +34,3 @@ RSpec.feature "Admin visits the admin page" do
     end
   end
 end
-Add Comment
