@@ -16,6 +16,12 @@ class OrdersController < ApplicationController
     @orders = @user.orders
   end
 
+  def new
+    # byebug
+    @cart_items = cart.items
+    @order = Order.new
+  end
+
   def create
     @order = Order.new
     @order.save

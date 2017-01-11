@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="row">
+      <fieldset>
+      <legend>Add Shipping Information</legend>
+
+      <%= form_for @order, :html => {:class => "form-horizontal center"} do |f| %>
+        <div class="form-group">
+          <%= f.label :name, "Name:", class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+          <%= f.text_field :name, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :address, "Address:", class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.text_field :address, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :city, "City:", class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.password_field :city, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :state, "State/Province:", class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.password_field :state, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :postal_code, "Postal Code:", class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.password_field :postal_code, class: "form-control" %>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <%= f.label :country, "Country:", class: "col-md-4 control-label" %>
+          <div class="col-md-4">
+            <%= f.password_field :country, class: "form-control" %>
+          </div>
+        </div>
+
+      </fieldset>
+    <% end %>
+	</div>
+</div>
