@@ -6,7 +6,9 @@
 
   <div class="col-lg-12">
     <h4> Order Date: <%= @order.created_at.strftime("%d %b. %Y") %></h4>
+    <h4> Order Time: <%= @order.created_at.strftime("%H %M %S") %></h4>
     <h4> Order Status: <%= @order.status %></h4>
+
   </div>
 
   <table class="table table-hover table-condensed">
