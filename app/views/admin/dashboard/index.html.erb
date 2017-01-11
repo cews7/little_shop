@@ -1,15 +1,71 @@
 <div class="container">
-<h1> Admin Dashboard </h1>
-<div class="col-12">
-  <td colspan="2" class="hidden-xs"></td>
-<%= link_to "Edit Admin Account", edit_admin_dashboard_path(id: current_user.id), class: "btn btn-primary" %>
-<td colspan="2" class="hidden-xs"></td>
-<h1> Name </h1>
- <%= current_user.name %>
-<h1> Email </h1>
- <%= current_user.email %><br><br>
- <td colspan="2" class="hidden-xs"></td>
- <%= link_to "View All Orders", admin_orders_path, class: "btn btn-primary" %>
- <td colspan="2" class="hidden-xs"></td>
+  <h1> Admin Dashboard </h1>
+  <div class="col-12">
+    <td colspan="2" class="hidden-xs"></td>
+    <%= link_to "Edit Admin Account", edit_admin_dashboard_path(id: current_user.id), class: "btn btn-primary" %>
+    <td colspan="2" class="hidden-xs"></td>
+    <h1> Name </h1>
+    <%= current_user.name %>
+    <h1> Email </h1>
+    <%= current_user.email %><br><br>
+    <td colspan="2" class="hidden-xs"></td>
+    <div class="col-md-4">
+      <h2> Total Orders By Status </h2>
+      <h3>Ordered</h3>
+      <h4> <%="#{number_of_ordered(@orders)} orders" %> </h4>
+      <td colspan="2" class="hidden-xs"></td>
+      <h3>Paid</h3>
+      <h4> <%="#{number_of_paid(@orders)} orders" %> </h4>
+      <td colspan="2" class="hidden-xs"></td>
+      <h3>Completed</h3>
+      <h4> <%="#{number_of_completed(@orders)} orders" %> </h4>
+      <td colspan="2" class="hidden-xs"></td>
+      <h3>Canceled </h3>
+      <h4> <%="#{number_of_canceled(@orders)} orders" %> </h4>
+    </div>
+  </div>
 </div>
-</div>
+<div class="container">
+  <%= form_tag admin_orders_path do %>
+  <%= select_tag :order_status, options_for_select(["Ordered", "Paid", "Completed", "Canceled"]) %><br><br>
+  <%= submit_tag "View Orders" , class: "btn btn-info btn-sm" %>
+  <% end %>
+  <div class="col-lg-12">
+    <h1 class="page-header">Order History</h1>
+  </div>
+  <table class="table table-hover table-condensed">
+    <thead>
+      <tr>
+        <th class="col-sm-6"><%= "View Order" %></th>
+        <th class="col-sm-2"><%= "Order Number" %></th>
+        <th class="col-sm-2"><%= "Status" %></th>
+        <th class="col-sm-2"><%= "Order Date" %></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @orders.each do |order| %>
+      <tr>
+        <td data-th="Product">
+          <div class="row">
+            <div class="col-sm-6 text-centered">
+              <%= link_to "View Order", admin_order_path(order.id), class: "btn btn-primary btn-large btn-block", id: "order_#{order.id}" %>
+            </div>
+          </div>
+        </td>
+        <td data-th"Order ID"><h3><%= order.id %></h3>
+          <td data-th"Status" class="text-center"><h3><%= order.status %></h3></td>
+          <td data-th="Created_at" class="text-center"><h3><%= order.created_at.strftime("%d %b. %Y") %></h3></td>
+          <% end %>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="visible-xs">
+          <td class="text-center">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="hidden-xs"></td>
+        </tr>
+      </tfoot>
+    </table>
+  </div>
