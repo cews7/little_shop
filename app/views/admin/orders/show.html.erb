@@ -1,0 +1,54 @@
+<div class="container">
+
+  <div class="col-lg-12">
+    <h1 class="page-header">Your Order</h1>
+  </div>
+
+  <div class="col-lg-12">
+    <h4> Order Date: <%= @order.created_at.strftime("%d %b. %Y") %></h4>
+    <h4> Order Status: <%= @order.status %></h4>
+  </div>
+
+  <table class="table table-hover table-condensed">
+  	<thead>
+  		<tr>
+        <th class="col-sm-6"><%= "Item" %></th>
+        <th class="col-sm-2"><%= "Price" %></th>
+        <th class="col-sm-2"><%= "Quantity" %></th>
+  			<th class="col-sm-2" class="text-center"><%= "Subtotal" %></th>
+  		</tr>
+  	</thead>
+  	<tbody>
+      <% @items.each do |order_item| %>
+  		<tr>
+  			<td data-th="Product">
+  				<div class="row">
+  					<div class="col-sm-2 hidden-xs">
+              <img><%= image_tag order_item.first.image, class: "img-responsive" %></img>
+            </div>
+  					<div class="col-sm-10">
+  						<h3 class="nomargin"><%= link_to "#{order_item.first.title}", item_path(order_item.first.id) %></h3>
+              <p><%= order_item.first.description %></p>
+  					</div>
+  				</div>
+  			</td>
+  			<td data-th="Price"><%="$#{order_item.first.price}" %></td>
+        <td data-th="Quantity"><%= order_item.count %></td>
+        <td data-th="Subtotal"><%= "$#{subtotal(order_item.first.price, order_item.count)}" %></td>
+        <% end %>
+  		</tr>
+  	</tbody>
+    <td class="col-lg-2 col-lg-pull-5"><strong>Order Total: <%= "$#{order_total(@items)}" %></strong></td>
+  	<tfoot>
+  		<tr class="visible-xs">
+  		</tr>
+  		<tr>
+        <td colspan="2" class="hidden-xs"></td>
+        <td><a><%= link_to "Back to Order History", orders_path, class: "btn btn-primary btn-large btn-block" %></a></td>
+        <td><a><%= link_to "Continue Shopping", items_path, class: "btn btn-warning btn-block" %></a></td>
+  			<td colspan="2" class="hidden-xs"></td>
+  		</tr>
+    </div>
+  	</tfoot>
+  </table>
+</div>
