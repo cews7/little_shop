@@ -36,6 +36,7 @@ RSpec.feature "Admin visits the admin page" do
       expect(page).to have_content("You are being redirected")
     end
   end
+
   context "as non-logged in user" do
     it "non-logged in users cannot see the admin page" do
       visit admin_dashboard_index_path

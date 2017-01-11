@@ -4,7 +4,7 @@ RSpec.feature "When a user adds items to their cart", type: :feature do
   let(:category) {Category.create!(title: "Animals")}
   before(:each) do
     item = Item.create(title: "Miniature Pony", price: 19999.99, description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",
-    image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg", category_id: category.id)
+                       image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg", category_id: category.id)
   end
 
   scenario "an item is added to the cart" do
