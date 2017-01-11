@@ -8,16 +8,12 @@ RSpec.feature "When a logged in user checks out an item", type: :feature do
     category_id: category.id)
     data = Hash.new(0)
     data[@item.id] = 2
-    cart = Cart.new(data)
-    @order = Order.create
-    @order_1 = data.map do |item_id, quantity|
-      @order.order_items.create(item_id: item_id, quantity: quantity)
-    end
-  user_1 = User.create!(name: "John Smith", email: "jo@jo.com", password: "1234567", password_confirmation: "1234567")
-end
+    @cart = Cart.new(data)
+  end
 
   context "An item is checked out from the cart" do
     scenario "An item is checked out and shown in the specific orders page" do
+      user_1 = User.create!(name: "John Smith", email: "jo@jo.com", password: "1234567", password_confirmation: "1234567")
       visit root_path
       click_link "Log In | Sign Up"
       expect(current_path).to eq(login_path)
@@ -25,12 +21,12 @@ end
       fill_in :session_password, with: "1234567"
       click_button "Login"
 
+      visit item_path(@item)
+      click_button "Add to Cart"
 
       visit cart_path
 
       click_button "Checkout"
-
-      visit order_path(@order.id)
 
       expect(page).to have_content("Miniature Pony")
       expect(page).to have_content("This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?")
@@ -45,6 +41,8 @@ end
 
   context "When looking at order history users see all orders" do
     scenario "An item is checked out and shown in the orders page" do
+      user_1 = User.create!(name: "John Smith", email: "jo@jo.com", password: "1234567", password_confirmation: "1234567")
+
 
       visit root_path
       click_link "Log In | Sign Up"
@@ -53,7 +51,7 @@ end
       fill_in :session_password, with: "1234567"
       click_button "Login"
 
-      visit items_path
+      visit item_path(@item)
       click_button "Add to Cart"
 
       visit cart_path
