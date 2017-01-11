@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   get "/dashboard",                          to: "users#show"
   post "/admin/dashboard/:id/edit",          to: "admin/dashboard#update"
   post "/admin/orders/:id",                  to: "admin/orders#update"
+  post "/admin/orders",                      to: "admin/orders#index"
 
   post "/cart_item_update",                  to: "cart_items#update"
   post "/cart_items",                        to: "cart_items#create"

@@ -11,25 +11,26 @@
     <td colspan="2" class="hidden-xs"></td>
     <div class="col-md-4">
       <h2> Total Orders By Status </h2>
-      <h3>Ordered</h3>
+      <h3>Ordered  </h3>
       <h4> <%="#{number_of_ordered(@orders)} orders" %> </h4>
+      <%= button_to "View Ordered", admin_orders_path, class: "btn btn-primary btn-large", name: "commit", value: "Ordered", id: "Ordered" %>
       <td colspan="2" class="hidden-xs"></td>
-      <h3>Paid</h3>
+      <h3>Paid </h3>
       <h4> <%="#{number_of_paid(@orders)} orders" %> </h4>
+      <%= button_to "View Paid", admin_orders_path, class: "btn btn-primary btn-large", name: "commit", value: "Paid", id: "Paid" %>
       <td colspan="2" class="hidden-xs"></td>
-      <h3>Completed</h3>
+      <h3>Completed </h3>
       <h4> <%="#{number_of_completed(@orders)} orders" %> </h4>
+      <%= button_to "View Completed", admin_orders_path, class: "btn btn-primary btn-large", name: "commit", value: "Completed", id: "Completed" %>
       <td colspan="2" class="hidden-xs"></td>
       <h3>Canceled </h3>
       <h4> <%="#{number_of_canceled(@orders)} orders" %> </h4>
+      <%= button_to "View Canceled", admin_orders_path, class: "btn btn-primary btn-large", name: "commit", value: "Canceled", id: "Canceled" %>
     </div>
   </div>
 </div>
 <div class="container">
-  <%= form_tag admin_orders_path do %>
-  <%= select_tag :order_status, options_for_select(["Ordered", "Paid", "Completed", "Canceled"]) %><br><br>
-  <%= submit_tag "View Orders" , class: "btn btn-info btn-sm" %>
-  <% end %>
+
   <div class="col-lg-12">
     <h1 class="page-header">Order History</h1>
   </div>

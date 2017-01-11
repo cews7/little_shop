@@ -11,10 +11,8 @@ class Admin::OrdersController < ApplicationController
   end
 
   def index
-    byebug
+    type_of_order
     @cart_items = cart.items
-    @orders = Order.all
-    byebug
   end
 
   def update
@@ -34,6 +32,18 @@ private
       @order.status        = "Completed"
     end
     @order.save
+  end
+
+  def type_of_order
+    if params[:commit]    == "View Paid"
+      @orders = Order.where(status: "Paid")
+    elsif params[:commit] == "View Canceled"
+      @orders = Order.where(status: "Canceled")
+    elsif params[:commit]  == "View Completed"
+      @orders = Order.where(status: "Completed")
+    else params[:commit] == "View Ordered"
+      @orders = Order.where(status: "Ordered")
+    end
   end
 
 end

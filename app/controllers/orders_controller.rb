@@ -17,6 +17,7 @@ class OrdersController < ApplicationController
   end
 
   def create
+
     @order = Order.new
     @order.save
     contents_determination

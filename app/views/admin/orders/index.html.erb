@@ -1,0 +1,44 @@
+<% if @orders.count == 0 %>
+  <h2> Currently No Orders <h2>
+  <a><%= link_to "Back to Admin Dashboard", admin_dashboard_index_path, class: "btn btn-primary btn-large ", id: "Admin" %></a>
+<% else %>
+  <div class="container">
+    <h1> Orders with the status "<%=@orders.first.status%>" </h1>
+    <div class="container">
+      <div class="col-lg-12">
+        <h1 class="page-header">Order History</h1>
+      </div>
+      <table class="table table-hover table-condensed">
+        <thead>
+          <tr>
+            <th class="col-sm-6"><%= "View Order" %></th>
+            <th class="col-sm-2"><%= "Order Number" %></th>
+            <th class="col-sm-2"><%= "Status" %></th>
+            <th class="col-sm-2"><%= "Order Date" %></th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+          <tr>
+            <td data-th="Product">
+              <div class="row">
+                <div class="col-sm-6 text-centered">
+                  <%= link_to "View Order", admin_order_path(order.id), class: "btn btn-primary btn-large btn-block", id: "order_#{order.id}" %>
+                </div>
+              </div>
+            </td>
+            <td data-th"Order ID"><h3><%= order.id %></h3>
+              <td data-th"Status" class="text-center"><h3><%= order.status %></h3></td>
+              <td data-th="Created_at" class="text-center"><h3><%= order.created_at.strftime("%d %b. %Y") %></h3></td>
+              <% end %>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="visible-xs">
+              <td colspan="2" class="hidden-xs"></td>
+              <a><%= link_to "Back to Admin Dashboard", admin_dashboard_index_path, class: "btn btn-primary", id: "Admin" %></a>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+<%end %>
