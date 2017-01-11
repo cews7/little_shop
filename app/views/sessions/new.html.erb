@@ -22,9 +22,14 @@
           <%= f.submit "Login", class:"btn btn-primary" %>
         </div>
       </div>
-
     </fieldset>
     <% end %>
-    <%= link_to "New? Create an Account!", new_user_path %>
+
+    <div class="row">
+      <div class=" text-center">
+        <%= link_to "New? Create an Account!", new_user_path, class:"btn btn-info login-btn" %>
+      </div>
+    </div>
+
   </div>
 </div>

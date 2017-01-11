@@ -1,5 +1,4 @@
 class OrderItemsController < ApplicationController
-
   def create
     @order = Order.new
     session[:cart].each do |item_id, quantity|
@@ -12,5 +11,4 @@ class OrderItemsController < ApplicationController
       redirect_to cart_items_path
     end
   end
-
 end

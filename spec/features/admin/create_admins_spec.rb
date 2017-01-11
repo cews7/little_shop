@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe "Admin visits the admin page" do
+RSpec.feature "Admin visits the admin page" do
   context "as admin" do
     it "allows admin to see the admin page" do
       admin =User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
@@ -36,6 +36,7 @@ describe "Admin visits the admin page" do
       expect(page).to have_content("You are being redirected")
     end
   end
+
   context "as non-logged in user" do
     it "non-logged in users cannot see the admin page" do
       visit admin_dashboard_index_path

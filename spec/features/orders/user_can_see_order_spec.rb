@@ -1,17 +1,19 @@
 require 'rails_helper'
 
 RSpec.feature "When a logged in user checks out an item", type: :feature do
-  let(:category) {Category.create!(title: "Animals")}
-  before(:each) do
-    item_1 = Item.create(title: "Miniature Pony", price: 19999.99, description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",
-    image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg", category_id: category.id)
-    user_1 = User.create!(name: "John Smith", email: "jo@jo.com", password: "1234567", password_confirmation: "1234567")
-    order = Order.create()
+  before(:all) do
+    category = Category.create(title: "Animals")
+    @item = Item.create(title: "Miniature Pony", description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",
+    price: 19999.99, image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg",
+    category_id: category.id)
+    data = Hash.new(0)
+    data[@item.id] = 2
+    @cart = Cart.new(data)
   end
 
   context "An item is checked out from the cart" do
-    scenario "An item is checked out and shown in the orders page" do
-
+    scenario "An item is checked out and shown in the specific orders page" do
+      user_1 = User.create!(name: "John Smith", email: "jo@jo.com", password: "1234567", password_confirmation: "1234567")
       visit root_path
       click_link "Log In | Sign Up"
       expect(current_path).to eq(login_path)
@@ -19,8 +21,7 @@ RSpec.feature "When a logged in user checks out an item", type: :feature do
       fill_in :session_password, with: "1234567"
       click_button "Login"
 
-      visit items_path
-      click_button "Add to Cart"
+      visit item_path(@item)
       click_button "Add to Cart"
 
       visit cart_path
@@ -40,6 +41,8 @@ RSpec.feature "When a logged in user checks out an item", type: :feature do
 
   context "When looking at order history users see all orders" do
     scenario "An item is checked out and shown in the orders page" do
+      user_1 = User.create!(name: "John Smith", email: "jo@jo.com", password: "1234567", password_confirmation: "1234567")
+
 
       visit root_path
       click_link "Log In | Sign Up"
@@ -48,8 +51,7 @@ RSpec.feature "When a logged in user checks out an item", type: :feature do
       fill_in :session_password, with: "1234567"
       click_button "Login"
 
-      visit items_path
-      click_button "Add to Cart"
+      visit item_path(@item)
       click_button "Add to Cart"
 
       visit cart_path
@@ -63,5 +65,4 @@ RSpec.feature "When a logged in user checks out an item", type: :feature do
       expect(page).to have_selector(:link_or_button, "View Order")
     end
   end
-
 end
