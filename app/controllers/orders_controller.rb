@@ -56,6 +56,6 @@ private
 
   def send_email
     @user = User.find(session[:user_id])
-    UserMailer.thank_you_email(@user).deliver_now
+    UserMailer.thank_you_email(@user).deliver_now!
   end
 end
