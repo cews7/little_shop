@@ -60,4 +60,34 @@ describe "Admin visits the admin individual order page" do
       expect(page).to have_content("Subtotal")
     end
   end
+
+  context "as admin do" do
+    it "allows admin to see cancel an order" do
+      visit root_path
+
+      click_link "Log In | Sign Up"
+
+      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_password, with: "1234567"
+
+      click_button "Login"
+
+      expect(page).to have_content("Admin Dashboard")
+      expect(page).to_not have_content("You are being redirected")
+
+      click_link "View Order"
+      save_and_open_page
+      expect(current_path).to eq(admin_order_path(@order_1.id))
+
+      click_button "Cancel"
+
+      expect(current_path).to eq(admin_order_path(@order_1.id))
+      expect(page).to have_content("Order has been Canceled")
+      expect(page).to have_content("Order Status: Canceled")
+
+      click_link "Back to Admin Dashboard"
+      save_and_open_page
+      expect(current_path).to eq(admin_dashboard_index_path)
+    end
+  end
 end
