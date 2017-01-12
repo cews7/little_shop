@@ -12,7 +12,10 @@ Rails.application.routes.draw do
   resources :users,                    only: [:new, :create]
   resources :orders,                   only: [:index, :show, :new, :create]
   resources :categories,               only: [:index]
+
+  resources :charges
   resources :infos,                    only: [:new, :create]
+
 
   get "/login",                        to: "sessions#new"
   post "/login",                       to: "sessions#create"
