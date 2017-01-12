@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :dashboard,                    only: [:index, :edit, :update]
     resources :orders,                       only: [:index, :show, :update]
+    resources :items,                       only: [:index]
   end
 
   resources :items,                          only: [:index, :show]
@@ -13,7 +14,7 @@ Rails.application.routes.draw do
   resources :categories,                     only: [:index]
   resources :charges
   resources :infos,                          only: [:new, :create]
-  
+
   get "/login",                              to: "sessions#new"
   post "/login",                             to: "sessions#create"
   get "/logout",                             to: "sessions#destroy"

@@ -20,7 +20,6 @@ users = [{name: "Jason Conrad", email: "jason@conrad.com", password: "1111111"},
              User.create!(user)
          end
 
-user_admin = User.create(name: "John Smith", email: "Johnsmith@johnsmith.com", password: "1234567", role: 1)
 
 items = [{title: "Miniature Pony", description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",
           price: 19999.99, image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg",
