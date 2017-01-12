@@ -15,9 +15,13 @@ module ApplicationHelper
   end
 
   def count(cart_items)
-    cart_items.map do |item|
-      item.quantity
-    end.reduce(:+)
+    if cart_items == nil
+      0
+    else
+      cart_items.map do |item|
+        item.quantity
+      end.reduce(:+)
+    end
   end
 
   def order_total(order_items)
