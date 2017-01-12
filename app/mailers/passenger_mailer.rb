@@ -1,2 +1,0 @@
-class PassengerMailer < ApplicationMailer
-end

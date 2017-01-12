@@ -28,6 +28,11 @@ RSpec.feature "Admin visits the admin page" do
     @order_4 = data_2.map do |item_id, quantity|
       @order_2.order_items.create(item_id: item_id, quantity: quantity)
     end
+    customer_info = Info.create(name: "John", address: "11 Sample Way", city: "Sample", state: "CO", postal_code: "80238", country: "USA")
+   @order_1.info = customer_info
+   @order_2.info = customer_info
+   @order_1.save
+   @order_2.save
   end
 
   context "as admin on the dashboard page" do
@@ -77,7 +82,6 @@ RSpec.feature "Admin visits the admin page" do
       expect(page).to_not have_content(@item_2.title)
       expect(page).to_not have_content(@item_2.price)
       expect(page).to_not have_content(@item_2.description)
-      expect(page).to_not have_content(@order_4.first.quantity)
     end
   end
 

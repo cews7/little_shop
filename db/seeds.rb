@@ -1,4 +1,4 @@
-categories = [{title: "Animals", image: "http://wallpaper-gallery.net/images/animal/animal-13.jpg"},
+categories = [{title: "Animals", image: "http://dailynewsdig.com/wp-content/uploads/2013/05/Cute-Tiny-Animals-That-You-Want-To-Put-In-Your-Pocket.jpg"},
               {title: "Cars", image: "http://media.caranddriver.com/images/16q1/665057/buick-avista-concept-dissected-design-powertrain-and-more-feature-car-and-driver-photo-666699-s-450x274.jpg"},
               {title: "Miscellaneous", image: "http://www.fitness.co.nz/media/catalog/product/m/i/miscellaneous-products-or-services.png"},
               {title: "Apparel", image: "https://financialtribune.com/sites/default/files/field/image/ordi/04%20India%20Apparel%20.jpg"},
@@ -11,6 +11,16 @@ category_objects = categories.map do |category|
     Category.create!(category)
 end
 
+users = [{name: "Jason Conrad", email: "jason@conrad.com", password: "1111111"},
+         {name: "Jason D Conrad", email: "jasond@conrad.com", password: "1111111", role: 1},
+         {name: "John Smith", email: "john@conrad.com", password: "1111111"}]
+
+         users.map do |user|
+             puts "Creating #{user[:name]}"
+             User.create!(user)
+         end
+
+user_admin = User.create(name: "John Smith", email: "Johnsmith@johnsmith.com", password: "1234567", role: 1)
 
 items = [{title: "Miniature Pony", description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",
           price: 19999.99, image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg",
