@@ -11,6 +11,14 @@ category_objects = categories.map do |category|
     Category.create!(category)
 end
 
+users = [{name: "Jason Conrad", email: "jason@conrad.com", password: "1111111"},
+         {name: "Jason D Conrad", email: "jasond@conrad.com", password: "1111111", role: 1},
+         {name: "John Smith", email: "john@conrad.com", password: "1111111"}]
+
+         users.map do |user|
+             puts "Creating #{user[:name]}"
+             User.create!(user)
+         end
 
 items = [{title: "Miniature Pony", description: "This majestic little beauty will be the pet you always wanted and the life of any party. Who needs a cat?",
           price: 19999.99, image: "https://c1.staticflickr.com/7/6111/6869176460_795613ac05_b.jpg",
