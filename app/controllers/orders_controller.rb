@@ -23,7 +23,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-
     @order = Order.new
     @order.save
     set_order_info
@@ -42,6 +41,7 @@ private
     if @order.save
       @order.user_id = session[:user_id]
       @order.save
+      send_email
       session.delete(:cart)
       redirect_to order_path(@order.id)
     else
@@ -54,4 +54,8 @@ private
     @order.save
   end
 
+  def send_email
+    @user = User.find(session[:user_id])
+    UserMailer.thank_you_email(@user).deliver_now
+  end
 end

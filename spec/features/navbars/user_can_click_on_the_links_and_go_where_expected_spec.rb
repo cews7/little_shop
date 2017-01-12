@@ -10,15 +10,6 @@ RSpec.feature "When a user clicks on the links in the nav bar it takes you to th
       expect(current_path).to eq(root_path)
     end
 
-    it "guest clicks on the categories button in the navbar" do
-      visit root_path
-
-      within(".navbar-link-categories") do
-        click_link("Categories")
-      end
-      expect(current_path).to eq(categories_path)
-    end
-
     it "guest clicks on the items button in the navbar" do
       visit root_path
 

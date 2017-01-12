@@ -1,3 +1,8 @@
+<% if @orders.count == 0 %>
+  <h2> You have no previous orders </h2>
+  <%= link_to "Continue Shopping", items_path, class: "btn btn-warning col-sm-2" %>
+<% else %>
+
 <div class="container">
   <div class="col-lg-12">
     <h1 class="page-header">Order History</h1>
@@ -21,20 +26,21 @@
           </div>
         </td>
         <td data-th"Order ID"><h3><%= order.id %></h3>
-        <td data-th"Status" class="text-center"><h3><%= order.status %></h3></td>
-        <td data-th="Created_at" class="text-center"><h3><%= order.created_at.strftime("%d %b. %Y") %></h3></td>
-        <% end %>
-      </tr>
-    </tbody>
-    <tfoot>
-      <tr class="visible-xs">
-        <td class="text-center">
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2" class="hidden-xs"></td>
-      </tr>
-    </tfoot>
-  </table>
-  <%= link_to "Continue Shopping", items_path, class: "btn btn-warning col-sm-2" %>
-</div>
+          <td data-th"Status" class="text-center"><h3><%= order.status %></h3></td>
+          <td data-th="Created_at" class="text-center"><h3><%= order.created_at.strftime("%d %b. %Y") %></h3></td>
+          <% end %>
+        </tr>
+      </tbody>
+      <tfoot>
+        <tr class="visible-xs">
+          <td class="text-center">
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2" class="hidden-xs"></td>
+        </tr>
+      </tfoot>
+    </table>
+    <%= link_to "Continue Shopping", items_path, class: "btn btn-warning col-sm-2" %>
+  </div>
+  <% end %>
