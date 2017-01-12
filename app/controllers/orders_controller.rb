@@ -23,9 +23,10 @@ class OrdersController < ApplicationController
   end
 
   def create
-    byebug
+
     @order = Order.new
     @order.save
+    set_order_info
     contents_determination
     order_saving
   end
@@ -47,4 +48,10 @@ private
       redirect_to cart_items_path
     end
   end
+
+  def set_order_info
+    @order.info = Info.find(session[:info_id])
+    @order.save
+  end
+
 end

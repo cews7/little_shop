@@ -11,5 +11,5 @@ class Order < ApplicationRecord
   has_many :items, through: :order_items
   belongs_to :info
 
-  enum status: ["Ordered", "Processing","Shipped", "Completed"]
+  enum status: ["Ordered", "Paid","Completed", "Canceled"]
 end

@@ -15,7 +15,7 @@
               <% if item.retired? %>
                 <a class="btn btn-danger btn-large btn-block disabled">Item Retired</a>
               <%else %>
-                <a><%= button_to "Add to Cart", cart_items_path(item_id: item.id), class:"btn btn-primary btn-large btn-block" %></a>
+                <a><%= button_to "Add to Cart", cart_items_path(item_id: item.id), class:"btn btn-primary btn-large btn-block", id: "item_#{item.id}" %></a>
              <% end %>
             </div>
           </div>

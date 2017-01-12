@@ -2,6 +2,7 @@ class Admin::DashboardController < ApplicationController
   before_action :require_admin
 
   def index
+    @orders = Order.all
     @items = Item.all
     @cart_items = cart.items
   end
