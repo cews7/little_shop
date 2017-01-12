@@ -191,13 +191,13 @@ describe "Admin visits the admin dashboard page" do
     end
 
     it "does not allow admin to edit profile when passwords don't match" do
-      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+      admin = User.create!(name: "John Smith", email: "johnathon@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
       visit root_path
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "johnathon@smith.com"
       fill_in :session_password, with: "1234567"
 
       click_button "Login"
@@ -208,12 +208,11 @@ describe "Admin visits the admin dashboard page" do
       click_link "Edit Admin Account"
 
       fill_in :user_name, with: "John"
-      fill_in :user_email, with: "john@smith.com"
+      fill_in :user_email, with: "johnathon@smith.com"
       fill_in :user_password, with: "1234567"
       fill_in :user_password_confirmation, with: "12345678"
 
       click_button "Edit Admin Account!"
-
       expect(current_path).to eq(admin_dashboard_path(admin.id))
       expect(page).to have_content("Admin profile has NOT been updated!")
 
@@ -223,25 +222,25 @@ describe "Admin visits the admin dashboard page" do
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "johnathon@smith.com"
       fill_in :session_password, with: "1234567"
       click_button "Login"
 
       expect(current_path).to eq(admin_dashboard_index_path)
       expect(page).to have_content("Admin Dashboard")
       expect(page).to have_content("John")
-      expect(page).to have_content("john@smith.com")
+      expect(page).to have_content("johnathon@smith.com")
       expect(page).to have_content("Logged in as Admin John")
     end
 
     it "does not allow admin to edit profile when name is empty" do
-      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+      admin = User.create(name: "John Smith", email: "random@email.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
       visit root_path
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "random@email.com"
       fill_in :session_password, with: "1234567"
 
       click_button "Login"
@@ -268,25 +267,25 @@ describe "Admin visits the admin dashboard page" do
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "random@email.com"
       fill_in :session_password, with: "1234567"
       click_button "Login"
 
       expect(current_path).to eq(admin_dashboard_index_path)
       expect(page).to have_content("Admin Dashboard")
       expect(page).to have_content("John")
-      expect(page).to have_content("john@smith.com")
+      expect(page).to have_content("random@email.com")
       expect(page).to have_content("Logged in as Admin John")
       end
 
     it "does not allow admin to edit profile when email is empty" do
-      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+      admin = User.create(name: "John Smith", email: "martin@lawrence.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
       visit root_path
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "martin@lawrence.com"
       fill_in :session_password, with: "1234567"
 
       click_button "Login"
@@ -313,25 +312,25 @@ describe "Admin visits the admin dashboard page" do
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "martin@lawrence.com"
       fill_in :session_password, with: "1234567"
       click_button "Login"
 
       expect(current_path).to eq(admin_dashboard_index_path)
       expect(page).to have_content("Admin Dashboard")
       expect(page).to have_content("John")
-      expect(page).to have_content("john@smith.com")
+      expect(page).to have_content("martin@lawrence.com")
       expect(page).to have_content("Logged in as Admin John")
     end
 
     it "does not allow admin to edit profile when password is empty" do
-      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+      admin = User.create(name: "John Smith", email: "sansa@stark.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
       visit root_path
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "sansa@stark.com"
       fill_in :session_password, with: "1234567"
 
       click_button "Login"
@@ -359,26 +358,26 @@ describe "Admin visits the admin dashboard page" do
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "sansa@stark.com"
       fill_in :session_password, with: "1234567"
       click_button "Login"
 
       expect(current_path).to eq(admin_dashboard_index_path)
       expect(page).to have_content("Admin Dashboard")
       expect(page).to have_content("John")
-      expect(page).to have_content("john@smith.com")
+      expect(page).to have_content("sansa@stark.com")
       expect(page).to have_content("Logged in as Admin John")
     end
 
-    #
+
     it "does not allow admin to edit profile when password confirmation is empty" do
-      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+      admin = User.create(name: "John Smith", email: "will@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
       visit root_path
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "will@smith.com"
       fill_in :session_password, with: "1234567"
 
       click_button "Login"
@@ -406,14 +405,14 @@ describe "Admin visits the admin dashboard page" do
 
       click_link "Log In | Sign Up"
 
-      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_email, with: "will@smith.com"
       fill_in :session_password, with: "1234567"
       click_button "Login"
 
       expect(current_path).to eq(admin_dashboard_index_path)
       expect(page).to have_content("Admin Dashboard")
       expect(page).to have_content("John")
-      expect(page).to have_content("john@smith.com")
+      expect(page).to have_content("will@smith.com")
       expect(page).to have_content("Logged in as Admin John")
       end
   end

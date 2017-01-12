@@ -39,7 +39,7 @@ describe "Admin visits the admin individual order page" do
       expect(page).to have_content("Admin Dashboard")
       expect(page).to_not have_content("You are being redirected")
 
-      click_link "View Order"
+      page.find("#order_#{@order_1.id}").click
 
       expect(current_path).to eq(admin_order_path(@order_1.id))
       expect(page).to have_content("Order Date")
@@ -74,7 +74,7 @@ describe "Admin visits the admin individual order page" do
       expect(page).to have_content("Admin Dashboard")
       expect(page).to_not have_content("You are being redirected")
 
-      click_link "View Order"
+      page.find("#order_#{@order_1.id}").click
 
       expect(current_path).to eq(admin_order_path(@order_1.id))
 
@@ -101,7 +101,7 @@ describe "Admin visits the admin individual order page" do
       expect(page).to have_content("Admin Dashboard")
       expect(page).to_not have_content("You are being redirected")
 
-      click_link "View Order"
+      page.find("#order_#{@order_1.id}").click
 
       expect(current_path).to eq(admin_order_path(@order_1.id))
 
@@ -131,7 +131,7 @@ describe "Admin visits the admin individual order page" do
           expect(page).to have_content("Admin Dashboard")
           expect(page).to_not have_content("You are being redirected")
 
-          click_link "View Order"
+          page.find("#order_#{@order_1.id}").click
 
           expect(current_path).to eq(admin_order_path(@order_1.id))
 
