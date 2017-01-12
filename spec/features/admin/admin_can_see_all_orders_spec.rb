@@ -37,7 +37,7 @@ RSpec.feature "Admin visits the admin page" do
 
   context "as admin on the dashboard page" do
     it "allows admin to see all orders" do
-      admin =User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
       visit root_path
 
@@ -58,8 +58,142 @@ RSpec.feature "Admin visits the admin page" do
       expect(page).to have_content(@order_2.status)
     end
 
+    it "admin can click on view ordered" do
+      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+
+      visit root_path
+
+      click_link "Log In | Sign Up"
+
+      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_password, with: "1234567"
+
+      click_button "Login"
+
+      expect(page).to have_content("Admin Dashboard")
+      expect(page).to_not have_content("You are being redirected")
+
+      click_button "View Ordered"
+
+      expect(current_path).to eq(admin_orders_path)
+      expect(page).to have_content("Order History")
+      expect(page).to have_content(@order_1.id)
+      expect(page).to have_content(@order_2.id)
+      expect(page).to have_content(@order_1.status)
+      expect(page).to have_content(@order_2.status)
+
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+
+    end
+
+    it "admin can click on view paid" do
+      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+
+      visit root_path
+
+      click_link "Log In | Sign Up"
+
+      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_password, with: "1234567"
+
+      click_button "Login"
+
+      expect(page).to have_content("Admin Dashboard")
+      expect(page).to_not have_content("You are being redirected")
+
+      click_button "View Paid"
+
+      expect(current_path).to eq(admin_orders_path)
+      expect(page).to have_content("Currently No Orders")
+
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+
+      page.find("#order_#{@order_1.id}").click
+      click_button "Mark as Paid"
+
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+
+      click_button "View Paid"
+
+      expect(page).to have_content(@order_1.id)
+
+    end
+
+    it "admin can click on view completed" do
+      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+
+      visit root_path
+
+      click_link "Log In | Sign Up"
+
+      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_password, with: "1234567"
+
+      click_button "Login"
+
+      expect(page).to have_content("Admin Dashboard")
+      expect(page).to_not have_content("You are being redirected")
+
+      click_button "View Completed"
+
+      expect(current_path).to eq(admin_orders_path)
+      expect(page).to have_content("Currently No Orders")
+
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+
+      page.find("#order_#{@order_1.id}").click
+
+      click_button "Mark as Paid"
+      click_button "Completed"
+      
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+
+      click_button "View Completed"
+
+      expect(page).to have_content(@order_1.id)
+    end
+
+    it "admin can click on view canceled" do
+      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+
+      visit root_path
+
+      click_link "Log In | Sign Up"
+
+      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_password, with: "1234567"
+
+      click_button "Login"
+
+      expect(page).to have_content("Admin Dashboard")
+      expect(page).to_not have_content("You are being redirected")
+
+      click_button "View Canceled"
+
+      expect(current_path).to eq(admin_orders_path)
+      expect(page).to have_content("Currently No Orders")
+
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+
+      page.find("#order_#{@order_1.id}").click
+      click_button "Cancel"
+
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+
+      click_button "View Canceled"
+
+      expect(page).to have_content(@order_1.id)
+    end
+
     it "admin can click on a button and view a specific order" do
-      admin =User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
       visit root_path
 
@@ -86,8 +220,8 @@ RSpec.feature "Admin visits the admin page" do
   end
 
   context "from the order show page" do
-    scenario "fan admin can update the status of the order" do
-      admin =User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+    scenario "admin can update the status of the order" do
+      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
       visit root_path
 
