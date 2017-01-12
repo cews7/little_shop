@@ -41,7 +41,7 @@
     </div><!-- /.container-fluid -->
   </nav>
   <% flash.each do |type, message| %>
-  <div class="panel panel-primary">
+  <div>
   </br><%= content_tag :div, sanitize(message), class: "alert alert-#{type}" %>
   <% end %>
 </div>
