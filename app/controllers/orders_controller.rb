@@ -23,7 +23,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    byebug
     @order = Order.new
     @order.save
     contents_determination
