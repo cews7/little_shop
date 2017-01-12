@@ -20,6 +20,7 @@
         <th class="col-sm-6"><%= "Item" %></th>
         <th class="col-sm-2"><%= "Price" %></th>
         <th class="col-sm-2"><%= "Quantity" %></th>
+        <th class="col-sm-2"><%= "Subtotal" %></th>
   			<th class="col-sm-2" class="text-center"></th>
   		</tr>
   	</thead>
@@ -39,9 +40,11 @@
   			</td>
   			<td data-th="Price"><%="$#{order_item.price}" %></td>
         <td data-th="Quantity"><%= @items.count %></td>
+        <td data-th="Subtotal"><%= "$#{subtotal(order_item.price, order_item.quantity)}" %></td>
         <% end %>
   		</tr>
   	</tbody>
+    <td class="col-lg-2 col-lg-pull-5"><strong>Order Total: <%= "$#{total_for_order(@items)}" %></strong></td>
   	<tfoot>
   		<tr class="visible-xs">
   		</tr>
