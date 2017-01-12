@@ -10,10 +10,7 @@
     <div class="user-profile">
       <h3><%= "E-mail: #{current_user.email}" %></h3>
       <h3><%= "Number of Orders: #{@orders.count}" %></h3>
-      <a><%= button_to "View Order History", orders_path, class:"btn btn-primary" %></a>
+      <a><%= link_to "View Order History", orders_path, class:"btn btn-primary" %></a>
     </div>
 
   </div>
-
-
-
