@@ -53,7 +53,7 @@
   			<td class="hidden-xs text-center"><strong>Total Price: <%= "$#{cart_total(@cart_items)}" %></strong></td>
   			<td>
           <% if current_user %>
-            <a><%= button_to "Checkout", new_order_path, class:"btn btn-primary" %></a>
+            <a><%= link_to "Checkout", new_info_path, class:"btn btn-primary" %></a>
           <% else %>
             <%= link_to "Log In | Sign Up to Checkout", login_path, class: "btn btn-success btn-block" %>
           <% end %>
