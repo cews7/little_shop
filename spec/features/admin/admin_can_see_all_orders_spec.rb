@@ -144,9 +144,21 @@ RSpec.feature "Admin visits the admin page" do
 
       click_link "Back to Admin Dashboard"
       expect(current_path).to eq(admin_dashboard_index_path)
+
+      page.find("#order_#{@order_1.id}").click
+
+      click_button "Mark as Paid"
+      click_button "Completed"
+      
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+
+      click_button "View Completed"
+
+      expect(page).to have_content(@order_1.id)
     end
 
-    it "admin can click on view paid" do
+    it "admin can click on view canceled" do
       admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
       visit root_path
@@ -168,6 +180,16 @@ RSpec.feature "Admin visits the admin page" do
 
       click_link "Back to Admin Dashboard"
       expect(current_path).to eq(admin_dashboard_index_path)
+
+      page.find("#order_#{@order_1.id}").click
+      click_button "Cancel"
+
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+
+      click_button "View Canceled"
+
+      expect(page).to have_content(@order_1.id)
     end
 
     it "admin can click on a button and view a specific order" do
