@@ -14,6 +14,12 @@ RSpec.describe Info, type: :model do
 
         expect(info).to be_invalid
       end
+
+      it "is invalid without a city" do
+        info = Info.create(name: "John", address: "11 Sample Way", state: "CO", postal_code: "80238", country: "USA")
+
+        expect(info).to be_invalid
+      end
     end
   end
 end
