@@ -45,4 +45,11 @@ module ApplicationHelper
   def number_of_canceled(orders)
     orders.where(status: "Canceled").count
   end
+
+  def total_for_order(order_items)
+    order_items.map do |item|
+      item.price * item.quantity
+    end.reduce(:+)
+
+  end
 end

@@ -174,4 +174,5 @@ RSpec.feature "When a logged in user checks out an item", type: :feature do
 
     end
   end
+
 end
