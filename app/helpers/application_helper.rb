@@ -29,4 +29,20 @@ module ApplicationHelper
       item.first.price * item.count
     end.reduce(:+)
   end
+
+  def number_of_ordered(orders)
+    orders.where(status: "Ordered").count
+  end
+
+  def number_of_paid(orders)
+    orders.where(status: "Paid").count
+  end
+
+  def number_of_completed(orders)
+    orders.where(status: "Completed").count
+  end
+
+  def number_of_canceled(orders)
+    orders.where(status: "Canceled").count
+  end
 end

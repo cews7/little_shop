@@ -52,9 +52,20 @@
   		<tr class="visible-xs">
   		</tr>
   		<tr>
-        <td colspan="2" class="hidden-xs"></td>
-        <td><a><%= link_to "Back to Order History", orders_path, class: "btn btn-primary btn-large btn-block" %></a></td>
-        <td><a><%= link_to "Continue Shopping", items_path, class: "btn btn-warning btn-block" %></a></td>
+        <% if @order.status == "Ordered" %>
+          <td><h2> Edit Order Status <h2></td>
+          <td><a><%= button_to "Cancel", admin_order_path, action: :update_cancel, method: :post, class: "btn btn-danger btn-large", name: "commit", value: "Canceled",  :html => {:class => "form-horizontal center"}, id: "Canceled" %></a></td>
+          <td><a><%= button_to "Mark as Paid", admin_order_path, action: :update_mark_as_paid, method: :post, class: "btn btn-primary btn-large", name: "commit", value: "Paid", :html => {:class => "form-horizontal center"}, id: "Paid" %></a></td>
+        <% elsif @order.status == "Paid" %>
+          <td><h2> Edit Order Status <h2></td>
+          <td><a><%= button_to "Cancel", admin_order_path, action: :update, method: :post, class: "btn btn-danger btn-large", name: "commit", value: "Canceled", :html => {:class => "form-horizontal center"}, id: "Canceled" %></a></td>
+          <td><a><%= button_to "Completed", admin_order_path, action: :update, method: :post, class: "btn btn-primary btn-large", name: "commit", value: "Completed", :html => {:class => "form-horizontal center"}, id: "Completed" %></a></td>
+        <% elsif @order.status == "Canceled" %>
+          <td><h2>Order has been Canceled <h2></td>
+        <% else @order.status == "Completed" %>
+          <td><h2>Order has been Completed <h2></td>
+        <% end %>
+        <td><a><%= link_to "Back to Admin Dashboard", admin_dashboard_index_path, class: "btn btn-primary btn-large btn-block", id: "Admin" %></a></td>
   			<td colspan="2" class="hidden-xs"></td>
   		</tr>
     </div>
