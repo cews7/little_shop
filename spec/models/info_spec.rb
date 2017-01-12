@@ -38,8 +38,14 @@ RSpec.describe Info, type: :model do
 
         expect(info).to be_invalid
       end
+    end
 
+    context "valid attributes when creating user info" do
+      it "is valid with all attributes" do
+        info = Info.create(name: "John", address: "11 Sample Way", city: "Sample", state: "CO", postal_code: "80238", country: "USA")
 
+        expect(info).to be_valid
+      end
     end
   end
 end
