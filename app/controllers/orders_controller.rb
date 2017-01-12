@@ -17,12 +17,13 @@ class OrdersController < ApplicationController
   end
 
   def new
-    # byebug
     @cart_items = cart.items
-    @order = Order.new
+    @info = Info.find(session[:info_id])
+    @items = cart.items
   end
 
   def create
+    byebug
     @order = Order.new
     @order.save
     contents_determination

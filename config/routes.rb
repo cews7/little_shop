@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   resources :users,                    only: [:new, :create]
   resources :orders,                   only: [:index, :show, :new, :create]
   resources :categories,               only: [:index]
+  resources :infos,                    only: [:new, :create]
 
   get "/login",                        to: "sessions#new"
   post "/login",                       to: "sessions#create"
@@ -22,7 +23,6 @@ Rails.application.routes.draw do
   post "/cart_items",                  to: "cart_items#create"
   get  "/cart",                        to: "cart_items#index"
   post "/delete_cart_items",           to: "cart_items#destroy"
-  post "/new_order",                   to: "orders#create"
 
   resources :categories,  :path => '', only: [:show]
 end
