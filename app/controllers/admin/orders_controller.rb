@@ -7,7 +7,7 @@ class Admin::OrdersController < ApplicationController
     @order.order_items.each do |item|
       item.quantity.times {items << Item.find(item.item_id)}
     end
-    @items = items.group_by(&:itself)
+     @items = items.group_by(&:itself)
   end
 
   def index
