@@ -132,6 +132,30 @@ RSpec.feature "Admin visits the admin page" do
       expect(current_path).to eq(admin_dashboard_index_path)
     end
 
+    it "admin can click on view paid" do
+      admin = User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
+
+      visit root_path
+
+      click_link "Log In | Sign Up"
+
+      fill_in :session_email, with: "john@smith.com"
+      fill_in :session_password, with: "1234567"
+
+      click_button "Login"
+
+      expect(page).to have_content("Admin Dashboard")
+      expect(page).to_not have_content("You are being redirected")
+
+      click_button "View Canceled"
+      
+      expect(current_path).to eq(admin_orders_path)
+      expect(page).to have_content("Currently No Orders")
+
+      click_link "Back to Admin Dashboard"
+      expect(current_path).to eq(admin_dashboard_index_path)
+    end
+
     it "admin can click on a button and view a specific order" do
       admin =User.create(name: "John Smith", email: "john@smith.com", password: "1234567", password_confirmation: "1234567", role: 1)
 
