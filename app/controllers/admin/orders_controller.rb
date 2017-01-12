@@ -1,5 +1,5 @@
 class Admin::OrdersController < ApplicationController
-
+  before_action :require_admin
   def show
     @cart_items = cart.items
     @order = Order.find(params[:id])
