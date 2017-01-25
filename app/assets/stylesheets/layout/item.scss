@@ -1,0 +1,48 @@
+.item {
+  height: 400px;
+  margin-top: 20px;
+}
+
+.item .img-responsive {
+  max-height: 200px;
+}
+
+.item .thumbnail{
+  margin-top: 10px;
+}
+
+.item-title {
+  font-weight: 700;
+}
+
+.item-description {
+  font-weight: 300;
+  margin-bottom: 15px;
+}
+
+.item-cart-btn {
+  width:90%;
+  margin: 0 auto;
+}
+
+.item-price {
+  text-align: center;
+}
+
+.item-info {
+  border: 1px #777 solid;
+  padding: 20px;
+}
+
+$line-height: 1.4;
+$lines-to-show: 2;
+
+.item-description {
+  display: -webkit-box;
+  max-width: 400px;
+  line-height: $line-height;
+  -webkit-line-clamp: $lines-to-show;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}

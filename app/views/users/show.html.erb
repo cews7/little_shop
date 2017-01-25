@@ -1,0 +1,16 @@
+<%= render partial: "shared/banner" %>
+
+<div class="container">
+  <div class="col-lg-12">
+
+    <div class="page-header">
+      <h1>Welcome, <%= current_user.name %>!</h1>
+    </div>
+
+    <div class="user-profile">
+      <h3><%= "E-mail: #{current_user.email}" %></h3>
+      <h3><%= "Number of Orders: #{@orders.count}" %></h3>
+      <a><%= link_to "View Order History", orders_path, class:"btn btn-primary" %></a>
+    </div>
+
+  </div>

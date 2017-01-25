@@ -1,0 +1,50 @@
+.navbar-brand {
+  padding-top: 0px;
+  padding-right: 15px;
+}
+
+.navbar-link-categories a {
+  color: $navbar-link;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.navbar-link-items a {
+  color: $navbar-link;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.navbar-link-logged-in a {
+  color: $navbar-link;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.navbar-link-logout a {
+  color: $navbar-link;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.navbar-link-login a {
+  color: $navbar-link;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.navbar-link-orders a {
+  color: $navbar-link;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.navbar-link-cart a {
+  color: $navbar-link;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.navbar-collapse {
+  padding-top: 15px;
+}
